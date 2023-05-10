@@ -11,12 +11,12 @@ public class ComplementoService {
 	//como los seeders de laravel (? 
 	@Autowired
 	public ComplementoService() {
-		lista.add(new Complemento("complemento", 20.20, "Descripcion", true, 25));
-		lista.add(new Complemento("complemento", 20.20, "Descripcion", true, 25));
-		lista.add(new Complemento("complemento", 20.20, "Descripcion", true, 25));
-		lista.add(new Complemento("complemento", 20.20, "Descripcion", true, 25));
-		lista.add(new Complemento("complemento", 20.20, "Descripcion", true, 25));
-	}
+		lista.add(new Complemento("termómetro", true,2,"Descripcion" , 25));
+		lista.add(new Complemento("termómetro", true,2,"Descripcion" , 25));
+		lista.add(new Complemento("termómetro", true,2,"Descripcion" , 25));
+		lista.add(new Complemento("termómetro", true,2,"Descripcion" , 25));
+		lista.add(new Complemento("termómetro", true,2,"Descripcion" , 25));
+}
 	public ArrayList<Complemento> getAllComplementos() {
 		System.out.println(lista);
 		return lista;		

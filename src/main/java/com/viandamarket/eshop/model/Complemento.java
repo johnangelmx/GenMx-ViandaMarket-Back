@@ -19,10 +19,11 @@ public class Complemento {
 //		Complemento.total++;
 //		this.id=Complemento.total;
 //	}
-	public Complemento(String string, double d, String string2, boolean b, int i) {
+	public Complemento() {
 		Complemento.total++;
 		this.id=Complemento.total;
 	}
+	
 	public Complemento(String nombre, boolean disponibilidad, int cantidad_disponible, 
 			String descripcion_complemento,	double precio) {
 	super();
