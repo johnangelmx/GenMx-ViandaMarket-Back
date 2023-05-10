@@ -8,34 +8,41 @@ public class Complemento {
 	private double precio;
 	private long id;
 	private static long total=0;
-	public Complemento(String nombre, boolean disponibilidad, int cantidad_disponible, String descripcion_complemento,
-			double precio) {
-		super();
-		this.nombre = nombre;
-		this.disponibilidad = disponibilidad;
-		this.cantidad_disponible = cantidad_disponible;
-		this.descripcion_complemento = descripcion_complemento;
-		this.precio = precio;
-		
+//	public Complemento(String nombre, double d, String string, boolean b,
+//			double precio) {
+//		super();
+//		this.nombre = nombre;
+//		this.disponibilidad = d;
+//		this.cantidad_disponible = string;
+//		this.descripcion_complemento = b;
+//		this.precio = precio;
+//		Complemento.total++;
+//		this.id=Complemento.total;
+//	}
+	public Complemento(String string, double d, String string2, boolean b, int i) {
 		Complemento.total++;
 		this.id=Complemento.total;
 	}
-	public Complemento() {
-		
-		Complemento.total++;
-		this.id=Complemento.total;
+	public Complemento(String nombre, boolean disponibilidad, int cantidad_disponible, 
+			String descripcion_complemento,	double precio) {
+	super();
+	this.nombre = nombre;
+	this.disponibilidad = disponibilidad;
+	this.cantidad_disponible = cantidad_disponible;
+	this.descripcion_complemento = descripcion_complemento;
+	this.precio = precio;
+	Complemento.total++;
+	this.id=Complemento.total;
+}
+	public boolean isDisponibilidad() {
+		return disponibilidad;
 	}
+	
 	public String getNombre() {
 		return nombre;
 	}
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
-	}
-	public boolean isDisponibilidad() {
-		return disponibilidad;
-	}
-	public void setDisponibilidad(boolean disponibilidad) {
-		this.disponibilidad = disponibilidad;
 	}
 	public int getCantidad_disponible() {
 		return cantidad_disponible;
@@ -67,14 +74,13 @@ public class Complemento {
 	public static void setTotal(long total) {
 		Complemento.total = total;
 	}
+	public void setDisponibilidad(boolean disponibilidad) {
+		this.disponibilidad = disponibilidad;
+	}//setDisponibilidad
 	@Override
 	public String toString() {
 		return "Complementos [nombre=" + nombre + ", disponibilidad=" + disponibilidad + ", cantidad_disponible="
 				+ cantidad_disponible + ", descripcion_complemento=" + descripcion_complemento + ", precio=" + precio
 				+ ", id=" + id + "]";
-	}
-	
-	
-	
-	
+	}//toString	
 }
