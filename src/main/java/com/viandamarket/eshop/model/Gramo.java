@@ -1,12 +1,12 @@
 package com.viandamarket.eshop.model;
 
 public class Gramo {
-	private Integer gramos;
+	private double gramos;
 	private long idcortes;
 	private long idcomplementos;
 	private long id;
 	private static long total=0;
-	public Gramo(Integer gramos, long idcortes, long idcomplementos) {
+	public Gramo(double gramos, long idcortes, long idcomplementos) {
 		super();
 		this.gramos = gramos;
 		this.idcortes = idcortes;
@@ -20,10 +20,10 @@ public class Gramo {
 		Gramo.total++;
 		this.id=Gramo.total;
 	}
-	public Integer getGramos() {
+	public double getGramos() {
 		return gramos;
 	}
-	public void setGramos(Integer gramos) {
+	public void setGramos(double gramos) {
 		this.gramos = gramos;
 	}
 	public long getIdcortes() {
