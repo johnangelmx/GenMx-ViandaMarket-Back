@@ -14,7 +14,7 @@ CREATE TABLE vianda_market_db. Usuarios (
 
 CREATE TABLE vianda_market_db.cortes (
   idcortes INT NOT NULL AUTO_INCREMENT,
-  corte VARCHAR(45) NOT NULL,
+  nombre VARCHAR(45) NOT NULL,
   precio FLOAT NOT NULL,
   descripcion_corte VARCHAR(500) NOT NULL,
   disponibilidad TINYINT NULL,
@@ -44,7 +44,7 @@ CREATE TABLE vianda_market_db.calidades (
 
   CREATE TABLE vianda_market_db.gramos (
   idgramos INT NOT NULL auto_increment,
-  gramos INT NOT NULL,
+  cantidad INT NOT NULL,
   cortes_idcortes INT,
   complementos_idcomplementos INT,
   PRIMARY KEY (idgramos)
