@@ -1,74 +1,60 @@
 package com.viandamarket.eshop.service;
 
-import java.util.ArrayList; 
+import java.util.List;
 
 import com.viandamarket.eshop.model.Corte;
 
+import com.viandamarket.eshop.repository.CorteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class CorteService {
-	private final ArrayList<Corte> lista = new ArrayList<>();
-	//Genera automaticamente al levantar el servidor
-	//como los seeders de laravel (? 
-	@Autowired
-	public CorteService() {
-		lista.add(new Corte("corte", 20.20, "Descripcion", true, 25, 1));
-		lista.add(new Corte("corte", 20.20, "Descripcion", true, 25, 1));
-		lista.add(new Corte("corte", 20.20, "Descripcion", true, 25, 1));
-		lista.add(new Corte("corte", 20.20, "Descripcion", true, 25, 1));
-		lista.add(new Corte("corte", 20.20, "Descripcion", true, 25, 1));
-	}//constructor
+    private final CorteRepository corteRepository;
 
-	public ArrayList<Corte> getAllCortes() {
-		// TODO Auto-generated method stub
-		return lista;
-	}
+    @Autowired
+    public CorteService(CorteRepository corteRepository) {
+        this.corteRepository = corteRepository;
+    }
 
-	public Corte getCorte(Long id) {
-		Corte tmCorte=null;
-		for (Corte usuario : lista) {
-			if (usuario.getId()==id) {
-				tmCorte= usuario;
-				
-			}
-		}
-		return tmCorte;
-	}
 
-	public Corte deleteCorte(Long id) {
-		Corte tmCorte=null;
-		for (Corte usuario : lista) {
-			if (usuario.getId()==id) {
-				tmCorte =  lista.remove(lista.indexOf(usuario));
-				break;
-			}
-		}
-		return tmCorte;
-	}
+    public List<Corte> getAllCortes() {
+        // TODO Auto-generated method stub
+        return corteRepository.findAll();
+    }
 
-	public Corte addCorte(Corte corte) {
-		lista.add(corte);
-		return corte;
-	}
+    public Corte getCorte(Long id) {
+        return corteRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("El Corte " + id + " No Exite"));
+    }
 
-	public Corte updateCorte(long id, String nombre, Double precio, String descripcion_corte, Boolean disponibilidad,
-            Float cantidad_disponible, Long idcalidades) {
-		Corte tmCorte=null;
-		for (Corte corte : lista) {
-			if (corte.getId()==id) {
-				if (nombre!=null)  corte.setNombre(nombre);
-				if (precio!=null)  corte.setPrecio(precio.doubleValue());
-				if (descripcion_corte!=null)  corte.setDescripcion_corte(descripcion_corte);
-				if (disponibilidad!=null)  corte.setDisponibilidad(disponibilidad);
-				if (cantidad_disponible!=null)  corte.setCantidad_disponible(cantidad_disponible);
-				if (idcalidades!=null)  corte.setIdcalidades(idcalidades);
-				tmCorte =  corte;
-				break;
-			}
-		}
-		return tmCorte;
-	}
- 
+    public Corte deleteCorte(Long id) {
+        Corte tmpUser = null;
+        if (corteRepository.existsById(id)) {
+            tmpUser = corteRepository.findById(id).get();
+            corteRepository.deleteById(id);
+        }
+        return tmpUser;
+    }
+
+    public Corte addCorte(Corte corte) {
+        return corteRepository.save(corte);
+    }
+
+    public Corte updateCorte(long id, String nombre, Double precio, String descripcion_corte, Boolean disponibilidad, Float cantidad_disponible, Long idcalidades) {
+        Corte tmpCorte = null;
+        if (corteRepository.existsById(id)) {
+            tmpCorte = corteRepository.findById(id).get();
+            if (nombre != null) tmpCorte.setNombre(nombre);
+            if (precio != null) tmpCorte.setPrecio(precio);
+            if (descripcion_corte != null) tmpCorte.setDescripcion_corte(descripcion_corte);
+            if (disponibilidad != null) tmpCorte.setDisponibilidad(disponibilidad);
+            if (cantidad_disponible != null) tmpCorte.setCantidad_disponible(cantidad_disponible);
+            if (idcalidades != null) tmpCorte.setIdcalidades(idcalidades);
+            corteRepository.save(tmpCorte);
+        } else {
+            System.out.println("update - El corte con id " + id + " no existe");
+        }
+        return tmpCorte;
+    }
+
 }
