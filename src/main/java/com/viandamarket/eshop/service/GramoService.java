@@ -1,69 +1,57 @@
 package com.viandamarket.eshop.service;
 
-import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
+import java.util.List;
 import com.viandamarket.eshop.model.Gramo;
-
+import com.viandamarket.eshop.repository.GramoRepository;
 
 @Service
 public class GramoService {
-
-	private final ArrayList<Gramo> lista = new ArrayList<>();
+	public final GramoRepository gramoRepository;
 
 	@Autowired
-	public GramoService() {
-		lista.add(new Gramo(350, 1, 1));
-		lista.add(new Gramo(440, 1, 2));
-		lista.add(new Gramo(700, 1, 3));
-		lista.add(new Gramo(550, 1, 4));
-		lista.add(new Gramo(850, 1, 5));
+	public GramoService(GramoRepository gramoRepository) {
+		this.gramoRepository = gramoRepository;
 	}// constructor
 
-	public ArrayList<Gramo> getAllGramos() {
-		return lista;
-	}//getAllCortes
+	public List<Gramo> getAllGramos() {
+		return gramoRepository.findAll();
+	}// getAllGramos
 
-	public Gramo getGramo(Long id) {
+	public Gramo getGramo(Long idgramos) {
+		return gramoRepository.findById(idgramos)
+				.orElseThrow(() -> new IllegalArgumentException("Los gramos con id" + idgramos + " no existen"));
+	}// getGramo
+
+	public Gramo deleteGramo(Long idgramos) {
 		Gramo tmGramo = null;
-		for (Gramo gramo : lista) {
-			if (gramo.getId() == id) {
-				tmGramo = gramo;
-			}//if
-		}//for
+		if (gramoRepository.existsById(idgramos)) {
+			tmGramo = gramoRepository.findById(idgramos).get();
+			gramoRepository.deleteById(idgramos);
+		} // if
 		return tmGramo;
-	}//getGramo
+	}// deleteGramo
 
-	public Gramo deleteGramo(Long id) {
+	public Gramo addGramo(Gramo idgramos) {
+		return gramoRepository.save(idgramos);
+	}// addGramo
+
+	public Gramo updateGramo(Long idgramos, Double cantidad, Long cortes_idcortes, Long complementos_idcomplementos) {
 		Gramo tmGramo = null;
-		for (Gramo gramo : lista) {
-			if (gramo.getId() == id) {
-				tmGramo = lista.remove(lista.indexOf(gramo));
-				break;
-			}//if
-		}//for
+		if (gramoRepository.existsById(idgramos)) {
+			tmGramo = gramoRepository.findById(idgramos).get();
+			if (cantidad != null)
+				tmGramo.setCantidad(cantidad);
+			if (cortes_idcortes != null)
+				tmGramo.setCortes_idcortes(cortes_idcortes);
+			if (complementos_idcomplementos != null)
+				tmGramo.setComplementos_idcomplementos(complementos_idcomplementos);				
+			gramoRepository.save(tmGramo);
+		}else {
+			System.out.println("Update - Los gramos con id " + idgramos + " no existen");
+		}//else
 		return tmGramo;
-	}//deleteGramo
+	}//updateGramo
 
-	public Gramo addGramo(Gramo gramo) {
-		lista.add(gramo);
-		return gramo;
-	}//addGramo
-	
-	public Gramo updateGramo (Long id, Double Gramos, Long idcortes, Long idcomplementos) {
-		Gramo tmGramo=null;
-		for (Gramo gramo : lista) {
-			if (gramo.getId()==id) {
-				if (Gramos!=null)  gramo.setGramos(Gramos);
-				if (idcortes!=null)  gramo.setIdcortes(idcortes);
-				if (idcomplementos!=null)  gramo.setIdcomplementos(idcomplementos);
-				tmGramo =  gramo;
-				break;
-			}
-		}
-		return tmGramo;
-	}
-	
-
-}//class GramoService
+}// class GramoService
