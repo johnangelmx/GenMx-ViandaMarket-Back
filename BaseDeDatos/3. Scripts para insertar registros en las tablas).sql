@@ -1,121 +1,121 @@
 USE vianda_market_db;
 -- ########### RIBEYE ###########
 -- Ribeye precio 5750
-INSERT INTO cortes (corte, precio, descripcion_corte, disponibilidad, cantidad_disponible, idcalidades)
+INSERT INTO cortes (nombre, precio, descripcion_corte, disponibilidad, cantidad_disponible, idcalidades)
 VALUE ('Ribeye','5750',
 'El preferido de muchos, esto gracias a su balance de sabor, suavidad y cantidad de grasa, es un corte sin hueso que proviene de la parte superior de las costillas.',
 '1','5','1');
 
 -- Ribeye precio 3850
-INSERT INTO cortes (corte, precio, descripcion_corte, disponibilidad, cantidad_disponible, idcalidades)
+INSERT INTO cortes (nombre, precio, descripcion_corte, disponibilidad, cantidad_disponible, idcalidades)
 VALUE ('Ribeye','3850',
 'El preferido de muchos, esto gracias a su balance de sabor, suavidad y cantidad de grasa, es un corte sin hueso que proviene de la parte superior de las costillas.',
 '1','3','2');
 
 -- Ribeye  precio 3170
-INSERT INTO cortes (corte, precio, descripcion_corte, disponibilidad, cantidad_disponible, idcalidades)
+INSERT INTO cortes (nombre, precio, descripcion_corte, disponibilidad, cantidad_disponible, idcalidades)
 VALUE ('Ribeye','3170',
 'El preferido de muchos, esto gracias a su balance de sabor, suavidad y cantidad de grasa, es un corte sin hueso que proviene de la parte superior de las costillas.',
 '1','3','3');
 
 -- Ribeye precio 1250
-INSERT INTO cortes (corte, precio, descripcion_corte, disponibilidad, cantidad_disponible, idcalidades)
+INSERT INTO cortes (nombre, precio, descripcion_corte, disponibilidad, cantidad_disponible, idcalidades)
 VALUE ('Ribeye','1250',
 'El preferido de muchos, esto gracias a su balance de sabor, suavidad y cantidad de grasa, es un corte sin hueso que proviene de la parte superior de las costillas.',
 '1','3','4');
 
 
 -- Ribeye precio 698
-INSERT INTO cortes (corte, precio, descripcion_corte, disponibilidad, cantidad_disponible, idcalidades)
+INSERT INTO cortes (nombre, precio, descripcion_corte, disponibilidad, cantidad_disponible, idcalidades)
 VALUE ('Ribeye','698',
 'El preferido de muchos, esto gracias a su balance de sabor, suavidad y cantidad de grasa, es un corte sin hueso que proviene de la parte superior de las costillas.',
 '1','3','7');
 
 -- ########### NEW YORK ###########
 -- Newyork precio 5750
-INSERT INTO cortes (corte, precio, descripcion_corte, disponibilidad, cantidad_disponible, idcalidades)
+INSERT INTO cortes (nombre, precio, descripcion_corte, disponibilidad, cantidad_disponible, idcalidades)
 VALUE ('New York','5750',
 'Es un corte muy bien valorado, viene del lomo de la res. Es popular por su gran suavidad y poca grasa.',
 '1','3','1');
 -- Newyork precio 3790
-INSERT INTO cortes (corte, precio, descripcion_corte, disponibilidad, cantidad_disponible, idcalidades)
+INSERT INTO cortes (nombre, precio, descripcion_corte, disponibilidad, cantidad_disponible, idcalidades)
 VALUE ('New York','3790',
 'Es un corte muy bien valorado, viene del lomo de la res. Es popular por su gran suavidad y poca grasa.',
 '1','3','2');
 -- Newyork precio 3150
-INSERT INTO cortes (corte, precio, descripcion_corte, disponibilidad, cantidad_disponible, idcalidades)
+INSERT INTO cortes (nombre, precio, descripcion_corte, disponibilidad, cantidad_disponible, idcalidades)
 VALUE ('New York','3150',
 'Es un corte muy bien valorado, viene del lomo de la res. Es popular por su gran suavidad y poca grasa.',
 '1','3','3');
 -- Newyork precio 1160
-INSERT INTO cortes (corte, precio, descripcion_corte, disponibilidad, cantidad_disponible, idcalidades)
+INSERT INTO cortes (nombre, precio, descripcion_corte, disponibilidad, cantidad_disponible, idcalidades)
 VALUE ('New York','1160',
 'Es un corte muy bien valorado, viene del lomo de la res. Es popular por su gran suavidad y poca grasa.',
 '1','3','4');
 -- Newyork precio 456
-INSERT INTO cortes (corte, precio, descripcion_corte, disponibilidad, cantidad_disponible, idcalidades)
+INSERT INTO cortes (nombre, precio, descripcion_corte, disponibilidad, cantidad_disponible, idcalidades)
 VALUE ('New York','456',
 'Es un corte muy bien valorado, viene del lomo de la res. Es popular por su gran suavidad y poca grasa.',
 '1','3','7');
 -- ########### PORTERHOUSE ###########
 -- Porterhouse 3500
-INSERT INTO cortes (corte, precio, descripcion_corte, disponibilidad, cantidad_disponible, idcalidades)
+INSERT INTO cortes (nombre, precio, descripcion_corte, disponibilidad, cantidad_disponible, idcalidades)
 VALUE ('Porterhouse','3500',
 'Muy conocido por ser agradable a la vista, pero tambien por su peculiaridad, esta conformado por dos cortes muy populares, el New York y Filete, lo que crea un balance sin igual.
 Mas conocido como "T-Bone" pero la diferencia es el tamaño de la porcion de Filete, se llama Porterhouse si el filete mide al menos 1.25 pulgadas de grosor.',
 '1','3','3');
 -- Porterhouse 790
-INSERT INTO cortes (corte, precio, descripcion_corte, disponibilidad, cantidad_disponible, idcalidades)
+INSERT INTO cortes (nombre, precio, descripcion_corte, disponibilidad, cantidad_disponible, idcalidades)
 VALUE ('Porterhouse','790',
 'Muy conocido por ser agradable a la vista, pero tambien por su peculiaridad, esta conformado por dos cortes muy populares, el New York y Filete, lo que crea un balance sin igual.
 Mas conocido como "T-Bone" pero la diferencia es el tamaño de la porcion de Filete, se llama Porterhouse si el filete mide al menos 1.25 pulgadas de grosor.',
 '1','3','4');
 -- ########### T-BONE ###########
 -- T-Bone 3450
-INSERT INTO cortes (corte, precio, descripcion_corte, disponibilidad, cantidad_disponible, idcalidades)
+INSERT INTO cortes (nombre, precio, descripcion_corte, disponibilidad, cantidad_disponible, idcalidades)
 VALUE ('T-Bone','3450',
 'El corte perfecto para tener un balance entre dos cortes, por un lado tenemos el Filete, 
 conocido por ser el corte mas blando y por el otro lados el New York, uno de los favoritos de la parrilla por su suavidad y sabor.',
 '1','3','3');
 -- T-Bone 470
-INSERT INTO cortes (corte, precio, descripcion_corte, disponibilidad, cantidad_disponible, idcalidades)
+INSERT INTO cortes (nombre, precio, descripcion_corte, disponibilidad, cantidad_disponible, idcalidades)
 VALUE ('T-Bone','470',
 'El corte perfecto para tener un balance entre dos cortes, por un lado tenemos el Filete, 
 conocido por ser el corte mas blando y por el otro lados el New York, uno de los favoritos de la parrilla por su suavidad y sabor.',
 '1','3','4');
 -- ########### TOMAHAWK ###########
 -- Tomahawk 3250
-INSERT INTO cortes (corte, precio, descripcion_corte, disponibilidad, cantidad_disponible, idcalidades)
+INSERT INTO cortes (nombre, precio, descripcion_corte, disponibilidad, cantidad_disponible, idcalidades)
 VALUE ('Tomahawk','3250',
 'El corte mas popular en la actualidad por su increible apariencia y tamaño, el nombre lo toma de una "Hacha" por su aspecto, este es un ribeye con hueso, 
 lo que ayuda a compartir ese increible sabor del hueso y evitar perdida de jugos, una excelente eleccion para cualquier situacion que lo necesites.',
 '1','3','3');
 -- ########### PICAÑA ###########
 -- PICAÑA 1700
-INSERT INTO cortes (corte, precio, descripcion_corte, disponibilidad, cantidad_disponible, idcalidades)
+INSERT INTO cortes (nombre, precio, descripcion_corte, disponibilidad, cantidad_disponible, idcalidades)
 VALUE ('Picaña','1700',
 'Popularizado por su reconocimiento en espadas Brasileñas, es un corte de gran sabor y suavidad, excelente para asar en laminas pero tambien para el ahumado.',
 '1','3','3');
 -- PICAÑA 500
-INSERT INTO cortes (corte, precio, descripcion_corte, disponibilidad, cantidad_disponible, idcalidades)
+INSERT INTO cortes (nombre, precio, descripcion_corte, disponibilidad, cantidad_disponible, idcalidades)
 VALUE ('Picaña','500',
 'Popularizado por su reconocimiento en espadas Brasileñas, es un corte de gran sabor y suavidad, excelente para asar en laminas pero tambien para el ahumado.',
 '1','3','6');
 -- PICAÑA 367
-INSERT INTO cortes (corte, precio, descripcion_corte, disponibilidad, cantidad_disponible, idcalidades)
+INSERT INTO cortes (nombre, precio, descripcion_corte, disponibilidad, cantidad_disponible, idcalidades)
 VALUE ('Picaña','367',
 'Popularizado por su reconocimiento en espadas Brasileñas, es un corte de gran sabor y suavidad, excelente para asar en laminas pero tambien para el ahumado.',
 '1','3','7');
 -- ########### SHORT RIBS ###########
 -- SHORT RIBS 720
-INSERT INTO cortes (corte, precio, descripcion_corte, disponibilidad, cantidad_disponible, idcalidades)
+INSERT INTO cortes (nombre, precio, descripcion_corte, disponibilidad, cantidad_disponible, idcalidades)
 VALUE ('Short Ribs','720',
 'La costilla cargada es exquisita, su balance de carne y hueso le da un tremendo sabor y suavidad, 
 tambien por tener un abundante marmoleo desde las calidades mas bajas. Excelente opcion para la botana o ahumado.',
 '1','3','6');
 -- ########### VACÍO ARGENTINO ###########
 -- VACÍO ARGENTINO 750
-INSERT INTO cortes (corte, precio, descripcion_corte, disponibilidad, cantidad_disponible, idcalidades)
+INSERT INTO cortes (nombre, precio, descripcion_corte, disponibilidad, cantidad_disponible, idcalidades)
 VALUE ('Vacío Argentino','750',
 'Corte que apenas esta ganando popularidad, su textura es similar a la arrachera pero con mucho mas sabor y suavidad.',
 '1','3','6');
@@ -150,7 +150,7 @@ SELECT * FROM vianda_market_db.complementos;
 -- ########### TABLA GRAMOS ###########
 
 
-INSERT INTO gramos (gramos, cortes_idcortes)
+INSERT INTO gramos (cantidad, cortes_idcortes)
 VALUES (350,1), (350,6), (370,1), (370,6), (400,1), (400,6), 
         (420,2), (440,2), (470,2), (490,2), 
         (360,7),(360,3),(360,8),
@@ -169,7 +169,7 @@ VALUES (350,1), (350,6), (370,1), (370,6), (400,1), (400,6),
            (350,10),(370,10),(400,10),
            (1700,18),(2000,18);
 
- INSERT INTO gramos (gramos, complementos_idcomplementos)
+ INSERT INTO gramos (cantidad, complementos_idcomplementos)
 VALUES
            (250,1),(500,1),(750,1), (1000,1),
             (250,2),(500,2),(750,2), (1000,2);
