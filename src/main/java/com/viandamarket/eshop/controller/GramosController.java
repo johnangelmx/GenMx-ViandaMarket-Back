@@ -54,13 +54,13 @@ public class GramosController {
 	//-- Put - Update
 	// Put para crear un elemento en especifico
 	@PutMapping (path="{gramosId}")
-	public Gramo addGramo(@PathVariable("gramosId") long id,	
-			@RequestParam(required = false)	Double gramos, 
-			@RequestParam(required = false)	Long idcortes, 
-			@RequestParam(required = false)	Long idcomplementos)
+	public Gramo addGramo(@PathVariable("gramosId") long idgramos,	
+			@RequestParam(required = false)	Double cantidad, 
+			@RequestParam(required = false)	Long cortes_idcortes, 
+			@RequestParam(required = false)	Long complementos_idcomplementos)
 			
 	{
-		return gramoService.updateGramo(id, gramos, idcortes, idcomplementos);
+		return gramoService.updateGramo(idgramos, cantidad, cortes_idcortes, complementos_idcomplementos);
 	} 
 
 
