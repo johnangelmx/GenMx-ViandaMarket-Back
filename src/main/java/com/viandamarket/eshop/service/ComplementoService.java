@@ -1,54 +1,72 @@
 package com.viandamarket.eshop.service;
-import java.util.ArrayList; 
+import java.util.List;
 import com.viandamarket.eshop.model.Complemento;
+import com.viandamarket.eshop.repository.ComplementoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class ComplementoService {
-	private final ArrayList<Complemento> lista = new ArrayList<>();
-	//Genera automaticamente al levantar el servidor
-	//como los seeders de laravel (? 
+	private final ComplementoRepository complementoRepository;
+
+	// Genera automaticamente al levantar el servidor
+	// como los seeders de laravel (?
 	@Autowired
-	public ComplementoService() {
-		lista.add(new Complemento("termómetro", true,2,"Descripcion" , 25));
-		lista.add(new Complemento("termómetro", true,2,"Descripcion" , 25));
-		lista.add(new Complemento("termómetro", true,2,"Descripcion" , 25));
-		lista.add(new Complemento("termómetro", true,2,"Descripcion" , 25));
-		lista.add(new Complemento("termómetro", true,2,"Descripcion" , 25));
-}
-	public ArrayList<Complemento> getAllComplementos() {
-		System.out.println(lista);
-		return lista;		
+	public ComplementoService(ComplementoRepository complementoRepository) {
+		this.complementoRepository = complementoRepository;
+
 	}
+
+	public List<Complemento> getAllComplementos() {
+		return complementoRepository.findAll();
+	}
+
 	public Complemento getComplemento(Long id) {
-		Complemento tmComplemento=null;
-		for (Complemento usuario : lista) {
-			if (usuario.getId()==id) {
-				tmComplemento= usuario;				
-			}
-		}
-		return tmComplemento;
+		return complementoRepository.findById(id)
+				.orElseThrow(() -> new IllegalArgumentException("Complemento con Id: " + id + " no existe."));
 	}
+
 	public Complemento deleteComplemento(Long id) {
-		Complemento tmComplemento=null;
-		for (Complemento usuario : lista) {
-			if (usuario.getId()==id) {
-				tmComplemento =  lista.remove(lista.indexOf(usuario));
-				break;
-			}
+		Complemento tmComplemento = null;
+		if (complementoRepository.existsById(id)) {
+			tmComplemento = complementoRepository.findById(id).get();
+			complementoRepository.deleteById(id);
 		}
 		return tmComplemento;
 	}
+
 	public Complemento addComplemento(Complemento complemento) {
-		lista.add(complemento);
-		return complemento;
+		return complementoRepository.save(complemento);
+
 	}
-//	public Complemento updateComplemento(long id, String nombre, Double precio, String descripcion_complemento, Boolean disponibilidad,
-//            Integer cantidad_disponible, Long idcalidades) {
-//		Complemento tmComplemento=null;
+
+	public Complemento updateComplemento(
+			long id,
+			String nombre, 
+			Boolean disponibilidad, 
+			Integer cantidad_disponible,
+			String descripcion_complemento,
+			Float precio
+			) {
+		Complemento tmComplemento = null;
+		if (complementoRepository.existsById(id)) {
+			tmComplemento = complementoRepository.findById(id).get();			
+			if (nombre != null) tmComplemento.setNombre(nombre);
+			if (disponibilidad != null) tmComplemento.setDisponibilidad(disponibilidad);
+			if (cantidad_disponible != null) tmComplemento.setCantidad_disponible(cantidad_disponible);
+			if (descripcion_complemento != null) tmComplemento.setDescripcion_complemento(descripcion_complemento);			
+			if (precio != null) tmComplemento.setPrecio(precio.floatValue());
+			
+			complementoRepository.save(tmComplemento);
+		} else {
+			System.out.println("Update - El complemento con id " + id + " no existe");
+		}
+		return tmComplemento;
+	}
+}
 //		for (Complemento complemento : lista) {
 //			if (complemento.getId()==id) {
+//				
 //				if (nombre!=null) complemento.setNombre(nombre);
 //				if (precio!=null) complemento.setPrecio(precio.doubleValue());
 //				if (descripcion_complemento!=null) complemento.setDescripcion_complemento(descripcion_complemento);
@@ -58,25 +76,6 @@ public class ComplementoService {
 //				break;
 //			}
 //		}
-//		return tmComplemento;
 //	}
-	
-	public Complemento updateComplemento(long id, String nombre, Double precio, String descripcion_complemento,
-			Boolean disponibilidad, Integer cantidad_disponible) {
-		Complemento tmComplemento=null;
-		for (Complemento complemento : lista) {
-			if (complemento.getId()==id) {
-				
-				if (nombre!=null) complemento.setNombre(nombre);
-				if (precio!=null) complemento.setPrecio(precio.doubleValue());
-				if (descripcion_complemento!=null) complemento.setDescripcion_complemento(descripcion_complemento);
-				if (disponibilidad!=null) complemento.setDisponibilidad(disponibilidad);
-				if (cantidad_disponible!=null) complemento.setCantidad_disponible(cantidad_disponible);
-				tmComplemento =complemento;
-				break;
-			}
-		}
-		return tmComplemento;
-	}
- 
-}
+// 
+//}

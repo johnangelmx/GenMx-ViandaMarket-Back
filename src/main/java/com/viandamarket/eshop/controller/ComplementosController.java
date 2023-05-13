@@ -22,10 +22,6 @@ public class ComplementosController {
 private final ComplementoService complementoService;
 
 	@Autowired
-//	public  ComplementosController(ComplementoService complementoService) {
-//		this.complementoService = complementoService;		
-//	}
-	
 	public  ComplementosController(ComplementoService complementoService) {
 		this.complementoService=complementoService;
 	}
@@ -62,11 +58,15 @@ private final ComplementoService complementoService;
 	@PutMapping (path="{complementoId}")
 	public Complemento addComplemento(@PathVariable("complementoId") long id,
 			@RequestParam(required = false)	String nombre, 
-			@RequestParam(required = false)	Double precio, 
-			@RequestParam(required = false)	String descripcion_complemento, 
 			@RequestParam(required = false)	Boolean disponibilidad, 
-			@RequestParam(required = false)	Integer cantidad_disponible) 
-	{
-		return complementoService.updateComplemento(id, nombre,precio, descripcion_complemento, disponibilidad,cantidad_disponible);
+			@RequestParam(required = false)	Integer cantidad_disponible, 
+			@RequestParam(required = false)	String descripcion_complemento,
+			@RequestParam(required = false)	Float precio)
+	{	
+
+//		String nombre, boolean disponibilidad, int cantidad_disponible, 
+//		String descripcion_complemento,	double precio
+		return complementoService.updateComplemento(id, nombre,disponibilidad, 
+				cantidad_disponible, descripcion_complemento,precio);
 	} 
 }//class ComplementosController
