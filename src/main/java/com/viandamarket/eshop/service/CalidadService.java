@@ -1,78 +1,69 @@
 package com.viandamarket.eshop.service;
 
-import java.util.ArrayList;
 
+
+
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.viandamarket.eshop.model.Calidad;
+import com.viandamarket.eshop.repository.CalidadRepository;
 
 
 
 @Service
 public class CalidadService {
 
-	public final ArrayList<Calidad> lista = new ArrayList<>();
-	@Autowired
-	public CalidadService(){
-	//	public Calidad(String marca, String pais, String descripcion_marca, String calidad)	
+	public final CalidadRepository calidadRepository;
 	
-		lista.add(new Calidad("A5","Japon","Carne roja de importacion","Prime"));
-		lista.add(new Calidad("A5","Japon","Carne roja de importacion","Prime"));
-		lista.add(new Calidad("A5","Japon","Carne roja de importacion","Prime"));
-		lista.add(new Calidad("A5","Japon","Carne roja de importacion","Prime"));
-		
+	@Autowired
+	public CalidadService(CalidadRepository calidadRepository){
+		this.calidadRepository=calidadRepository;
 	}//constructor
 	
 	
-	public ArrayList<Calidad> getAllCalidades(){
-		return lista;
-	
+	public List<Calidad> getAllCalidades(){
+		return calidadRepository.findAll();
 	}//getAllcalidades
 
+	
 	public Calidad getCalidad(Long id) {
-		Calidad tmpProd = null;
-		for(Calidad calidad:lista) {
-			if (calidad.getId()==id) {
-				return calidad;
-			}//if
-		}//foreach
-		return tmpProd;
+		return calidadRepository.findById(id).orElseThrow(
+				()->new IllegalArgumentException("El id de esta calidad " + id + " no existe")
+				);
 	}//getProducto
 	
 	
 	public Calidad deleteCalidad(Long id) {
-		Calidad tmpProd = null;
-		for(Calidad calidad:lista) {
-			if (calidad.getId()==id) {
-				tmpProd = lista.remove(lista.indexOf(calidad));
-				break;
-			}//if
-		}//foreach
-		return tmpProd;
+		Calidad tmpCalid = null;
+		if(calidadRepository.existsById(id)) {
+			tmpCalid = calidadRepository.findById(id).get();
+			calidadRepository.deleteById(id);
+			}//if	
+		return tmpCalid;
 	}//getProducto
 	
-	public Calidad addCalidad (Calidad calidad) {
-		lista.add(calidad);
-		return calidad;
+	
+	public Calidad addCalidad (Calidad calidad) {		
+		return calidadRepository.save(calidad);
 	}//addProducto
+	
 	
 	public Calidad updateCalidad(long id, String marca, String pais, 
 			String descripcion_marca, String calidad) {
-		Calidad tmCali=null;
-		for (Calidad calid : lista) {
-			if (calid.getId()==id) {
-				if (marca!=null)  calid.setMarca(marca);
-				if (pais!=null)  calid.setPais(pais);
-				if (descripcion_marca!=null)  calid.setDescripcion_marca(descripcion_marca);
-				if (calidad!=null)  calid.setCalidad(calidad);
-				tmCali =  calid;
-				break;
-			}
-		}
-		return tmCali;
-	}//updateUsuario
-	
-	
+		Calidad tmpCali=null;
+		if(calidadRepository.existsById(id)) {
+			tmpCali = calidadRepository.findById(id).get(); 
+				if (marca!=null)  tmpCali.setMarca(marca);
+				if (pais!=null)  tmpCali.setPais(pais);
+				if (descripcion_marca!=null)  tmpCali.setDescripcion_marca(descripcion_marca);
+				if (calidad!=null)  tmpCali.setCalidad(calidad);
+				calidadRepository.save(tmpCali);
+			}else {
+				System.out.println("Update -El producto con id " + id + " no existe.");
+			}//else
+		return tmpCali;
+	}//updatecalidad
 	
 }//class CalidadService

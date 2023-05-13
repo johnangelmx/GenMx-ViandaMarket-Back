@@ -1,12 +1,28 @@
 package com.viandamarket.eshop.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+///POJO - Plain Old Java Object
+
+
+@Entity
+@Table(name="calidades")
 public class Calidad {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="idcalidades", unique = true, nullable = false)
+	private long id;
 	private String marca;
 	private String pais;
 	private String descripcion_marca;
+	@Column (nullable = false)
 	private String calidad;
-	private long id;
-	private static long total=0;
+	
 	
 	public Calidad(String marca, String pais, String descripcion_marca, String calidad) {
 		super();
@@ -15,14 +31,10 @@ public class Calidad {
 		this.descripcion_marca = descripcion_marca;
 		this.calidad = calidad;
 		
-		Calidad.total++;
-		this.id=Calidad.total;
+		
 	}//Constructor
 
-	public Calidad() {		
-		Calidad.total++;
-		this.id=Calidad.total;
-	}//constructor default
+	public Calidad() {}//constructor default
 
 	public String getMarca() {
 		return marca;

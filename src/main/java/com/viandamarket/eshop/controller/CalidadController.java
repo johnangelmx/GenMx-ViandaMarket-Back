@@ -59,7 +59,7 @@ public class CalidadController {
 		
 	}  
 	//-- Put - Update
-	// Put para crear un elemento en especifico
+	// Put para editar un elemento en especifico
 	@PutMapping (path="{calidadId}")
 	public Calidad addCalidad(@PathVariable("calidadId") long id,
 			@RequestParam(required = false)	String marca, 
