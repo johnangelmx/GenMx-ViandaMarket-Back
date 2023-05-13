@@ -1,55 +1,76 @@
 package com.viandamarket.eshop.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "gramos")
 public class Gramo {
-	private Integer gramos;
-	private long idcortes;
-	private long idcomplementos;
-	private long id;
-	private static long total=0;
-	public Gramo(Integer gramos, long idcortes, long idcomplementos) {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(unique = true, nullable = false)
+	private long idgramos;
+	@Column(nullable = false)
+	private double cantidad;
+	@Column(columnDefinition = "integer default 0")
+	private long cortes_idcortes;
+	@Column(columnDefinition = "integer default 0")
+	private long complementos_idcomplementos;
+	
+
+	public Gramo(long idgramos, double cantidad, long cortes_idcortes, long complementos_idcomplementos) {
 		super();
-		this.gramos = gramos;
-		this.idcortes = idcortes;
-		this.idcomplementos = idcomplementos;
-		
-		Gramo.total++;
-		this.id=Gramo.total;
+		this.idgramos = idgramos;
+		this.cantidad = cantidad;
+		this.cortes_idcortes = cortes_idcortes;
+		this.complementos_idcomplementos = complementos_idcomplementos;
 	}
-	public Gramo() {
-		
-		Gramo.total++;
-		this.id=Gramo.total;
+	
+	public Gramo() {}
+
+
+	public long getIdgramos() {
+		return idgramos;
 	}
-	public Integer getGramos() {
-		return gramos;
+
+	public void setIdgramos(long idgramos) {
+		this.idgramos = idgramos;
 	}
-	public void setGramos(Integer gramos) {
-		this.gramos = gramos;
+
+	public double getCantidad() {
+		return cantidad;
 	}
-	public long getIdcortes() {
-		return idcortes;
+
+	public void setCantidad(double cantidad) {
+		this.cantidad = cantidad;
 	}
-	public void setIdcortes(long idcortes) {
-		this.idcortes = idcortes;
+
+	public long getCortes_idcortes() {
+		return cortes_idcortes;
 	}
-	public long getIdcomplementos() {
-		return idcomplementos;
+
+	public void setCortes_idcortes(long cortes_idcortes) {
+		this.cortes_idcortes = cortes_idcortes;
 	}
-	public void setIdcomplementos(long idcomplementos) {
-		this.idcomplementos = idcomplementos;
+
+	public long getComplementos_idcomplementos() {
+		return complementos_idcomplementos;
 	}
-	public long getId() {
-		return id;
+
+	public void setComplementos_idcomplementos(long complementos_idcomplementos) {
+		this.complementos_idcomplementos = complementos_idcomplementos;
 	}
-	public void setId(long id) {
-		this.id = id;
-	}
+
 	@Override
 	public String toString() {
-		return "Gramos [gramos=" + gramos + ", idcortes=" + idcortes + ", idcomplementos=" + idcomplementos + ", id="
-				+ id + "]";
+		return "Gramo [idgramos=" + idgramos + ", cantidad=" + cantidad + ", cortes_idcortes=" + cortes_idcortes
+				+ ", complementos_idcomplementos=" + complementos_idcomplementos + "]";
 	}
-	
-	
-	
-}
+
+		
+
+}//class Gramo
