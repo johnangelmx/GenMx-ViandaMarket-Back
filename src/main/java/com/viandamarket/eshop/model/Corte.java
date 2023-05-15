@@ -7,7 +7,7 @@ import javax.persistence.*;
 public class Corte {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name ="idcortes",unique = true, nullable = false)
+    @Column(name = "idcortes", unique = true, nullable = false)
     private long id;
     private String nombre;
     private double precio;
@@ -18,18 +18,15 @@ public class Corte {
 
 
     public Corte(String nombre, double precio, String descripcion_corte, boolean disponibilidad, float cantidad_disponible, long idcalidades) {
-        super();
         this.nombre = nombre;
         this.precio = precio;
         this.descripcion_corte = descripcion_corte;
         this.disponibilidad = disponibilidad;
         this.cantidad_disponible = cantidad_disponible;
         this.idcalidades = idcalidades;
-
     }
 
     public Corte() {
-
     }
 
     public long getId() {
