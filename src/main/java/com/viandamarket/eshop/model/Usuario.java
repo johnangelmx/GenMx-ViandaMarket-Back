@@ -8,7 +8,7 @@ public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) //? Asigna al campo el valor autoincremental
     @Column(name = "idUsuarios", unique = true, nullable = false)
-    private long id;
+    private Integer id;
 
     private String domicilio;
 
@@ -90,7 +90,7 @@ public class Usuario {
     }
 
     public void setId(Long idUsuarios) {
-        this.id = idUsuarios;
+        this.id = Math.toIntExact(idUsuarios);
     }
     //? Setter & Getter ⬆ ️
 
