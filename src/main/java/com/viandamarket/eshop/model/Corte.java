@@ -1,5 +1,7 @@
 package com.viandamarket.eshop.model;
 
+import org.hibernate.annotations.Type;
+
 import javax.persistence.*;
 
 @Entity
@@ -7,29 +9,28 @@ import javax.persistence.*;
 public class Corte {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name ="idcortes",unique = true, nullable = false)
-    private long id;
+    @Column(name = "idcortes", unique = true, nullable = false)
+    private Integer id;
     private String nombre;
     private double precio;
     private String descripcion_corte;
+    @Column(columnDefinition = "TINYINT")
+    @Type(type = "org.hibernate.type.NumericBooleanType")
     private boolean disponibilidad;
     private float cantidad_disponible;
-    private long idcalidades;
+    private Integer idcalidades;
 
 
-    public Corte(String nombre, double precio, String descripcion_corte, boolean disponibilidad, float cantidad_disponible, long idcalidades) {
-        super();
+    public Corte(String nombre, double precio, String descripcion_corte, boolean disponibilidad, float cantidad_disponible, int idcalidades) {
         this.nombre = nombre;
         this.precio = precio;
         this.descripcion_corte = descripcion_corte;
         this.disponibilidad = disponibilidad;
         this.cantidad_disponible = cantidad_disponible;
         this.idcalidades = idcalidades;
-
     }
 
     public Corte() {
-
     }
 
     public long getId() {
@@ -37,7 +38,7 @@ public class Corte {
     }
 
     public void setId(long id) {
-        this.id = id;
+        this.id = Math.toIntExact(id);
     }
 
     public String getNombre() {
@@ -85,7 +86,7 @@ public class Corte {
     }
 
     public void setIdcalidades(long idcalidades) {
-        this.idcalidades = idcalidades;
+        this.idcalidades = Math.toIntExact(idcalidades);
     }
 
     @Override
