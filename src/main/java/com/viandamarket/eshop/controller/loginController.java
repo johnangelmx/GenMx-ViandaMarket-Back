@@ -15,6 +15,7 @@ import java.util.Calendar;
 import java.util.Date;
 
 @RestController
+@CrossOrigin(origins = "*")
 @RequestMapping(path = "/api/login/")
 public class loginController {
     private final UsuarioService usuarioService;

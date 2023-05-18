@@ -125,15 +125,15 @@ FROM vianda_market_db.cortes;
 
 -- ########### TABLA USUARIOS ###########
 
-INSERT INTO Usuarios (domicilio, nombres, apellidos, correo, contrasena, edad)
+INSERT INTO usuarios (domicilio, nombres, apellidos, correo, contrasena, edad)
 VALUES ("Eje Central, Colonia Zapata", "Francisco", "Salinas", "FranSal@gmail.com", "#HolaMundo1", 27);
-INSERT INTO Usuarios (domicilio, nombres, apellidos, correo, contrasena, edad)
+INSERT INTO usuarios (domicilio, nombres, apellidos, correo, contrasena, edad)
 VALUES ("Avenida Libertador, Colonia Paso Limonero ", "Gerardo", "Mendoza", "MenGer@gmail.com", "%Rinoceronte23", 25);
-INSERT INTO Usuarios (domicilio, nombres, apellidos, correo, contrasena, edad)
+INSERT INTO usuarios (domicilio, nombres, apellidos, correo, contrasena, edad)
 VALUES ("Avenida Unidos, Colonia Renacimiento", "Moises", "Rodriguez", "Moi@gmail.com", "&Nopales95", 23);
-INSERT INTO Usuarios (domicilio, nombres, apellidos, correo, contrasena, edad)
+INSERT INTO usuarios (domicilio, nombres, apellidos, correo, contrasena, edad)
 VALUES ("Avenida Renacimiento, Colonia Las Cruces", "Andrea", "Hernandez", "Andrea@gmail.com", "*Automobil7", 29);
-INSERT INTO Usuarios (domicilio, nombres, apellidos, correo, contrasena, edad)
+INSERT INTO usuarios (domicilio, nombres, apellidos, correo, contrasena, edad)
 VALUES ("Avenida Lopez Mateos, Colonia Coasta Azul", "Carolina", "Lopez", "Caro@gmail.com", "@Europa85", 31);
 SELECT *
 FROM vianda_market_db.usuarios;
