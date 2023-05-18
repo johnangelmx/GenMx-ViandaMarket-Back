@@ -156,9 +156,44 @@ INSERT INTO complementos (idcomplementos, nombre, disponibilidad, cantidad_dispo
 SELECT *
 FROM vianda_market_db.complementos;
 
--- ########### TABLA GRAMOS ###########
 
-INSERT INTO gramos (cantidad, cortes_idcortes, complementos_idcomplementos)
+-- ########### TABLA CALIDADES ###########
+
+INSERT INTO calidades (marca, pais, descripcion_marca, calidad)
+    VALUE ('Japanese Beef', 'Japon',
+           'La carne Japonesa es la mejor del mundo, su certificacion refleja autenticidad y calidad, nuestros productos cuentan con el grado A5 BMS 8-11, lo mejor en la escala Japonesa.',
+           'A5 (BMS 8-11)');
+INSERT INTO calidades (marca, pais, descripcion_marca, calidad)
+    VALUE ('Stone Axe', 'Australia',
+           'Stone Axe es un Wagyu Fullblood Australiano con BMS 9+, lo mas alto en la escala de marmoleo australiana.',
+           'BMS 9+');
+INSERT INTO calidades (marca, pais, descripcion_marca, calidad)
+    VALUE ('Margaret River', 'Australia',
+           'Margaret River es un Wagyu Pure Bred con BMS 8-9, su genetica Wagyu esta en el 94%, un marmoleo y sabor excepcional.',
+           'BMS 8-9');
+INSERT INTO calidades (marca, pais, descripcion_marca, calidad)
+    VALUE ('Excel', 'USA / Canada',
+           'Excel es uno de los mayores comercializadores de carne en norte america, sin duda, una garantia obtener sus productos.',
+           'Prime (BMS 4-5)');
+INSERT INTO calidades (marca, pais, descripcion_marca, calidad)
+    VALUE ('CAB', 'USA / Canada',
+           'CAB con sus 10 normas adicionales a la USDA genera una gran confianza a garantia a sus clientes, una excelente opcion para saborear lo mejor de USA y Canada.',
+           'Prime (BMS 4-5)');
+INSERT INTO calidades (marca, pais, descripcion_marca, calidad)
+    VALUE ('Sterling Silver', 'USA / Canada',
+           'Famosa por sus productos High Choice, lo mejor dentro de su categoria. Su proceso de añejamiento de 21 potencializa el sabor y suavidad de la carne.',
+           'High Choice (BMS 3)');
+INSERT INTO calidades (marca, pais, descripcion_marca, calidad)
+    VALUE (' ', 'México',
+           'El producto que manejamos en esta categoria proviene de Sonora, con un excelente sabor, calidad y textura. Su marmoleo es similar a los productos Choice y Prime.',
+           'Nacional');
+SELECT *
+FROM vianda_market_db.calidades;
+
+
+########### TABLA GRAMOS ###########
+
+INSERT INTO gramos (cantidad, idcortes, idcomplementos)
 VALUES (350, 1, 0),
        (350, 6, 0),
        (370, 1, 0),
@@ -216,39 +251,5 @@ VALUES (350, 1, 0),
        (750, 0, 2),
        (1000, 0, 2);
 
-
 SELECT *
 FROM vianda_market_db.gramos;
-
--- ########### TABLA CALIDADES ###########
-
-INSERT INTO calidades (marca, pais, descripcion_marca, calidad)
-    VALUE ('Japanese Beef', 'Japon',
-           'La carne Japonesa es la mejor del mundo, su certificacion refleja autenticidad y calidad, nuestros productos cuentan con el grado A5 BMS 8-11, lo mejor en la escala Japonesa.',
-           'A5 (BMS 8-11)');
-INSERT INTO calidades (marca, pais, descripcion_marca, calidad)
-    VALUE ('Stone Axe', 'Australia',
-           'Stone Axe es un Wagyu Fullblood Australiano con BMS 9+, lo mas alto en la escala de marmoleo australiana.',
-           'BMS 9+');
-INSERT INTO calidades (marca, pais, descripcion_marca, calidad)
-    VALUE ('Margaret River', 'Australia',
-           'Margaret River es un Wagyu Pure Bred con BMS 8-9, su genetica Wagyu esta en el 94%, un marmoleo y sabor excepcional.',
-           'BMS 8-9');
-INSERT INTO calidades (marca, pais, descripcion_marca, calidad)
-    VALUE ('Excel', 'USA / Canada',
-           'Excel es uno de los mayores comercializadores de carne en norte america, sin duda, una garantia obtener sus productos.',
-           'Prime (BMS 4-5)');
-INSERT INTO calidades (marca, pais, descripcion_marca, calidad)
-    VALUE ('CAB', 'USA / Canada',
-           'CAB con sus 10 normas adicionales a la USDA genera una gran confianza a garantia a sus clientes, una excelente opcion para saborear lo mejor de USA y Canada.',
-           'Prime (BMS 4-5)');
-INSERT INTO calidades (marca, pais, descripcion_marca, calidad)
-    VALUE ('Sterling Silver', 'USA / Canada',
-           'Famosa por sus productos High Choice, lo mejor dentro de su categoria. Su proceso de añejamiento de 21 potencializa el sabor y suavidad de la carne.',
-           'High Choice (BMS 3)');
-INSERT INTO calidades (marca, pais, descripcion_marca, calidad)
-    VALUE (' ', 'México',
-           'El producto que manejamos en esta categoria proviene de Sonora, con un excelente sabor, calidad y textura. Su marmoleo es similar a los productos Choice y Prime.',
-           'Nacional');
-SELECT *
-FROM vianda_market_db.calidades;

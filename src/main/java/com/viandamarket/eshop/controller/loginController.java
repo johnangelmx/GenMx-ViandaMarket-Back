@@ -1,5 +1,6 @@
 package com.viandamarket.eshop.controller;
 
+import com.viandamarket.eshop.model.ChangePassword;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import com.viandamarket.eshop.config.JwtFilter;
@@ -7,10 +8,7 @@ import com.viandamarket.eshop.model.Token;
 import com.viandamarket.eshop.model.Usuario;
 import com.viandamarket.eshop.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.ServletException;
 import java.util.Calendar;
@@ -33,6 +31,11 @@ public class loginController {
             return new Token(generateToken(usuario.getContrasena()));
         }
         throw new ServletException(" nombre usuario o contrasena incorretos");
+    }
+
+    @PutMapping(path = "{userId}")
+    public Usuario updateUsuarioContrasena(@PathVariable("userId") long id, @RequestBody ChangePassword changePassword) {
+        return usuarioService.updateUsuarioContrasena(id, changePassword);
     }
 
     //? Metodo para generar token ⬇

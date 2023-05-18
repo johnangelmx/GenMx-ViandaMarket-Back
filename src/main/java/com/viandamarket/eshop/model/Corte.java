@@ -10,7 +10,7 @@ public class Corte {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idcortes", unique = true, nullable = false)
-    private Integer id;
+    private Long id;
     private String nombre;
     private double precio;
     private String descripcion_corte;
@@ -18,10 +18,10 @@ public class Corte {
     @Type(type = "org.hibernate.type.NumericBooleanType")
     private boolean disponibilidad;
     private float cantidad_disponible;
-    private Integer idcalidades;
+    private Long idcalidades;
 
-
-    public Corte(String nombre, double precio, String descripcion_corte, boolean disponibilidad, float cantidad_disponible, int idcalidades) {
+    //? Constructores ⬇
+    public Corte(String nombre, double precio, String descripcion_corte, boolean disponibilidad, float cantidad_disponible, Long idcalidades) {
         this.nombre = nombre;
         this.precio = precio;
         this.descripcion_corte = descripcion_corte;
@@ -32,13 +32,14 @@ public class Corte {
 
     public Corte() {
     }
+    //? Getters & Setters ⬇
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
-        this.id = Math.toIntExact(id);
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getNombre() {
@@ -81,18 +82,19 @@ public class Corte {
         this.cantidad_disponible = cantidad_disponible;
     }
 
-    public long getIdcalidades() {
+    public Long getIdcalidades() {
         return idcalidades;
     }
 
-    public void setIdcalidades(long idcalidades) {
-        this.idcalidades = Math.toIntExact(idcalidades);
+    public void setIdcalidades(Long idcalidades) {
+        this.idcalidades = idcalidades;
     }
+
+    //? Getters & Setters ⬆
+    //? ToString() ⬇
 
     @Override
     public String toString() {
         return "Corte{" + "id=" + id + ", nombre='" + nombre + '\'' + ", precio=" + precio + ", descripcion_corte='" + descripcion_corte + '\'' + ", disponibilidad=" + disponibilidad + ", cantidad_disponible=" + cantidad_disponible + ", idcalidades=" + idcalidades + '}';
     }
-
-
 }

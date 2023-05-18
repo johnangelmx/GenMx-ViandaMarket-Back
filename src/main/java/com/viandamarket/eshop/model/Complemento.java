@@ -16,7 +16,7 @@ public class Complemento {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idcomplementos", unique = true, nullable = false)
-    private Integer id;
+    private Long id;
     @Column(nullable = false)
     private String nombre;
     @Column(columnDefinition = "TINYINT", nullable = false)
@@ -32,8 +32,7 @@ public class Complemento {
     public Complemento() {
     }
 
-    public Complemento(String nombre, boolean disponibilidad, Double cantidad_disponible,
-                       String descripcion_complemento, float precio) {
+    public Complemento(String nombre, boolean disponibilidad, Double cantidad_disponible, String descripcion_complemento, float precio) {
         this.nombre = nombre;
         this.disponibilidad = disponibilidad;
         this.cantidad_disponible = cantidad_disponible;
@@ -41,12 +40,16 @@ public class Complemento {
         this.precio = precio;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
-        this.id = Math.toIntExact(id);
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setCantidad_disponible(Double cantidad_disponible) {
+        this.cantidad_disponible = cantidad_disponible;
     }
 
     public String getNombre() {
@@ -91,9 +94,7 @@ public class Complemento {
 
     @Override
     public String toString() {
-        return "Complemento [id=" + id + ", nombre=" + nombre + ", disponibilidad=" + disponibilidad
-                + ", cantidad_disponible=" + cantidad_disponible + ", descripcion_complemento="
-                + descripcion_complemento + ", precio=" + precio + "]";
+        return "Complemento [id=" + id + ", nombre=" + nombre + ", disponibilidad=" + disponibilidad + ", cantidad_disponible=" + cantidad_disponible + ", descripcion_complemento=" + descripcion_complemento + ", precio=" + precio + "]";
     }
 
 
