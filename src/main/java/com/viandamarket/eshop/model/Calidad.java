@@ -16,7 +16,7 @@ public class Calidad {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idcalidades", unique = true, nullable = false)
-    private Integer id;
+    private Long id;
     private String marca;
     private String pais;
     private String descripcion_marca;
@@ -69,13 +69,13 @@ public class Calidad {
         this.calidad = calidad;
     }//setCalidad
 
-    public long getId() {
+    public Long getId() {
         return id;
-    }//getId
+    }
 
-    public void setId(long id) {
-        this.id = Math.toIntExact(id);
-    }//setId
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     @Override
     public String toString() {

@@ -7,21 +7,22 @@ import javax.persistence.*;
 public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) //? Asigna al campo el valor autoincremental
-    @Column(name = "idUsuarios", unique = true, nullable = false)
-    private Integer id;
+    @Column(name = "id_usuarios", unique = true, nullable = false)
+    private Long id;
 
-    private String domicilio;
+    private String domicilio = "Desconocido";
 
-    private String nombres;
+    private String nombres = "John";
 
-    private String apellidos;
+    private String apellidos = "Doe";
 
     private String correo;
 
     private String contrasena;
 
-    private Integer edad;
+    private Integer edad = 18;
 
+    //? Contructors ⬇
 
     public Usuario(String domicilio, String nombres, String apellidos, String correo, String contrasena, Integer edad) {
         this.domicilio = domicilio;
@@ -33,9 +34,17 @@ public class Usuario {
     }
 
     public Usuario() {
-
     }
     //? Setter & Getter ⬇
+
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getDomicilio() {
         return domicilio;
@@ -85,13 +94,6 @@ public class Usuario {
         this.edad = edad;
     }
 
-    public long getId() {
-        return id;
-    }
-
-    public void setId(Long idUsuarios) {
-        this.id = Math.toIntExact(idUsuarios);
-    }
     //? Setter & Getter ⬆ ️
 
     //? To String ⬇

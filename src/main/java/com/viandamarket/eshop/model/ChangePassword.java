@@ -1,12 +1,12 @@
 package com.viandamarket.eshop.model;
 
 public class ChangePassword {
-    private String password;
-    private String newPassword;
+    private String contrasena;
+    private String newContrasena;
 
-    public ChangePassword(String password, String newPassword) {
-        this.password = password;
-        this.newPassword = newPassword;
+    public ChangePassword(String contrasena, String newContrasena) {
+        this.contrasena = contrasena;
+        this.newContrasena = newContrasena;
     }
 
     public ChangePassword() {
@@ -14,27 +14,28 @@ public class ChangePassword {
 
     //? Setter & Getter ⬇
 
-    public String getPassword() {
-        return password;
+    public String getContrasena() {
+        return contrasena;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
     }
 
-    public String getNewPassword() {
-        return newPassword;
+    public String getNewContrasena() {
+        return newContrasena;
     }
 
-    public void setNewPassword(String newPassword) {
-        this.newPassword = newPassword;
+    public void setNewContrasena(String newContrasena) {
+        this.newContrasena = newContrasena;
     }
+
 
     //? Setter & Getter ⬆ ️
     //? ToString
 
     @Override
     public String toString() {
-        return "ChangePassword{" + "password='" + password + '\'' + ", newPassword='" + newPassword + '\'' + '}';
+        return "ChangePassword{" + "contrasena='" + contrasena + '\'' + ", newContrasena='" + newContrasena + '\'' + '}';
     }
 }

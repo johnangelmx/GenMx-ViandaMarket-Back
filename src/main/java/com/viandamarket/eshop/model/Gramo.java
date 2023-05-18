@@ -13,63 +13,66 @@ public class Gramo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true, nullable = false)
-    private Integer idgramos;
+    private Long idgramos;
     @Column(nullable = false)
     private Integer cantidad;
     @Column(columnDefinition = "integer default 0")
-    private Integer cortes_idcortes;
+    private Long idcortes;
     @Column(columnDefinition = "integer default 0")
-    private Integer complementos_idcomplementos;
+    private Long idcomplementos;
 
 
-    public Gramo(int idgramos, int cantidad, int cortes_idcortes, int complementos_idcomplementos) {
-        super();
-        this.idgramos = idgramos;
+    //? Constructores ⬇
+
+
+    public Gramo(Integer cantidad, Long idcortes, Long idcomplementos) {
         this.cantidad = cantidad;
-        this.cortes_idcortes = cortes_idcortes;
-        this.complementos_idcomplementos = complementos_idcomplementos;
+        this.idcortes = idcortes;
+        this.idcomplementos = idcomplementos;
     }
 
     public Gramo() {
     }
+    //? Getters & Setters ⬇
 
-
-    public long getIdgramos() {
+    public Long getIdgramos() {
         return idgramos;
     }
 
-    public void setIdgramos(long idgramos) {
-        this.idgramos = Math.toIntExact(idgramos);
+    public void setIdgramos(Long idgramos) {
+        this.idgramos = idgramos;
     }
 
-    public double getCantidad() {
+    public Integer getCantidad() {
         return cantidad;
     }
 
-    public void setCantidad(double cantidad) {
-        this.cantidad = (int) cantidad;
+    public void setCantidad(Integer cantidad) {
+        this.cantidad = cantidad;
     }
 
-    public long getCortes_idcortes() {
-        return cortes_idcortes;
+    public Long getIdcortes() {
+        return idcortes;
     }
 
-    public void setCortes_idcortes(long cortes_idcortes) {
-        this.cortes_idcortes = Math.toIntExact(cortes_idcortes);
+    public void setIdcortes(Long idcortes) {
+        this.idcortes = idcortes;
     }
 
-    public long getComplementos_idcomplementos() {
-        return complementos_idcomplementos;
+    public Long getIdcomplementos() {
+        return idcomplementos;
     }
 
-    public void setComplementos_idcomplementos(long complementos_idcomplementos) {
-        this.complementos_idcomplementos = Math.toIntExact(complementos_idcomplementos);
+    public void setIdcomplementos(Long idcomplementos) {
+        this.idcomplementos = idcomplementos;
     }
+
+    //? Getters & Setters ⬆
+
+    //? ToString()⬇
 
     @Override
     public String toString() {
-        return "Gramo [idgramos=" + idgramos + ", cantidad=" + cantidad + ", cortes_idcortes=" + cortes_idcortes + ", complementos_idcomplementos=" + complementos_idcomplementos + "]";
+        return "Gramo{" + "idgramos=" + idgramos + ", cantidad=" + cantidad + ", idcortes=" + idcortes + ", idcomplementos=" + idcomplementos + '}';
     }
-
-
 }//class Gramo

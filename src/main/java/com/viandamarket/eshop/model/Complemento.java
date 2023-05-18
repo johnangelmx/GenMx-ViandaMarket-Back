@@ -1,4 +1,5 @@
 package com.viandamarket.eshop.model;
+
 import org.hibernate.annotations.Type;
 
 import javax.persistence.Column;
@@ -10,92 +11,91 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table(name="complementos")
+@Table(name = "complementos")
 public class Complemento {
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="idcomplementos",unique=true,nullable=false)
-	private Integer id;
-	@Column(nullable=false)
-	private String nombre;
-	@Column(columnDefinition = "TINYINT",nullable=false)
-	@Type(type = "org.hibernate.type.NumericBooleanType")
-	private boolean disponibilidad;
-	@Column(nullable=false)
-	private Double cantidad_disponible;
-	@Column(nullable=false)
-	private String descripcion_complemento;
-	@Column(nullable=false)
-	private float precio;
-	
-	public Complemento() {
-	}
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "idcomplementos", unique = true, nullable = false)
+    private Long id;
+    @Column(nullable = false)
+    private String nombre;
+    @Column(columnDefinition = "TINYINT", nullable = false)
+    @Type(type = "org.hibernate.type.NumericBooleanType")
+    private boolean disponibilidad;
+    @Column(nullable = false)
+    private Double cantidad_disponible;
+    @Column(nullable = false)
+    private String descripcion_complemento;
+    @Column(nullable = false)
+    private float precio;
 
-	public Complemento(String nombre, boolean disponibilidad, Double cantidad_disponible,
-			String descripcion_complemento, float precio) {
-		this.nombre = nombre;
-		this.disponibilidad = disponibilidad;
-		this.cantidad_disponible = cantidad_disponible;
-		this.descripcion_complemento = descripcion_complemento;
-		this.precio = precio;
-	}
+    public Complemento() {
+    }
 
-	public long getId() {
-		return id;
-	}
+    public Complemento(String nombre, boolean disponibilidad, Double cantidad_disponible, String descripcion_complemento, float precio) {
+        this.nombre = nombre;
+        this.disponibilidad = disponibilidad;
+        this.cantidad_disponible = cantidad_disponible;
+        this.descripcion_complemento = descripcion_complemento;
+        this.precio = precio;
+    }
 
-	public void setId(long id) {
-		this.id = Math.toIntExact(id);
-	}
+    public Long getId() {
+        return id;
+    }
 
-	public String getNombre() {
-		return nombre;
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
+    public void setCantidad_disponible(Double cantidad_disponible) {
+        this.cantidad_disponible = cantidad_disponible;
+    }
 
-	public boolean isDisponibilidad() {
-		return disponibilidad;
-	}
+    public String getNombre() {
+        return nombre;
+    }
 
-	public void setDisponibilidad(boolean disponibilidad) {
-		this.disponibilidad = disponibilidad;
-	}
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
 
-	public Double getCantidad_disponible() {
-		return cantidad_disponible;
-	}
+    public boolean isDisponibilidad() {
+        return disponibilidad;
+    }
 
-	public void setCantidad_disponible(int cantidad_disponible) {
-		this.cantidad_disponible = (double) cantidad_disponible;
-	}
+    public void setDisponibilidad(boolean disponibilidad) {
+        this.disponibilidad = disponibilidad;
+    }
 
-	public String getDescripcion_complemento() {
-		return descripcion_complemento;
-	}
+    public Double getCantidad_disponible() {
+        return cantidad_disponible;
+    }
 
-	public void setDescripcion_complemento(String descripcion_complemento) {
-		this.descripcion_complemento = descripcion_complemento;
-	}
+    public void setCantidad_disponible(int cantidad_disponible) {
+        this.cantidad_disponible = (double) cantidad_disponible;
+    }
 
-	public float getPrecio() {
-		return precio;
-	}
+    public String getDescripcion_complemento() {
+        return descripcion_complemento;
+    }
 
-	public void setPrecio(float precio) {
-		this.precio = precio;
-	}
+    public void setDescripcion_complemento(String descripcion_complemento) {
+        this.descripcion_complemento = descripcion_complemento;
+    }
 
-	@Override
-	public String toString() {
-		return "Complemento [id=" + id + ", nombre=" + nombre + ", disponibilidad=" + disponibilidad
-				+ ", cantidad_disponible=" + cantidad_disponible + ", descripcion_complemento="
-				+ descripcion_complemento + ", precio=" + precio + "]";
-	}
-	
-	
-	
-	
+    public float getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(float precio) {
+        this.precio = precio;
+    }
+
+    @Override
+    public String toString() {
+        return "Complemento [id=" + id + ", nombre=" + nombre + ", disponibilidad=" + disponibilidad + ", cantidad_disponible=" + cantidad_disponible + ", descripcion_complemento=" + descripcion_complemento + ", precio=" + precio + "]";
+    }
+
+
 }
