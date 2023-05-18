@@ -16,6 +16,9 @@ public class UsuarioService {
 	private PasswordEncoder passwordEncoder;
     
     @Autowired
+    private PasswordEncoder passwordEncoder;
+
+    @Autowired
     public UsuarioService(UsuarioRepository usuarioRepository) {
         this.usuarioRepository = usuarioRepository;
     }//UsuarioService
@@ -40,14 +43,13 @@ public class UsuarioService {
     }//deleteUsuario
 
     public Usuario addUsuario(Usuario usuario) {
-        Usuario tmpUser = null;
+        Usuario tmp = null;
         if (usuarioRepository.findByCorreo(usuario.getCorreo()).isEmpty()) {
-//			usuario.setContrasena(passwordEncoder.encode(usuario.getContrasena()));;
-            
-        	tmpUser = usuarioRepository.save(usuario);
+            usuario.setContrasena(passwordEncoder.encode(usuario.getContrasena())); //Codifica la password
+            tmp = usuarioRepository.save(usuario);
         }
-        return tmpUser;
-    }//addUsuario
+        return tmp;
+    }
 
     public Usuario updateUsuarioContrasena(Long id, ChangePassword changePassword) {
         Usuario tmp = null;
@@ -81,14 +83,16 @@ public class UsuarioService {
     }//updateUsuario
 
     public boolean validateUsuario(Usuario usuario) {
-		Optional<Usuario> userByCorreo = usuarioRepository.findByCorreo(usuario.getCorreo());
-		if (userByCorreo.isPresent()) {
-			Usuario user = userByCorreo.get();
-			if (passwordEncoder.matches(usuario.getContrasena(), user.getContrasena())) {
-//			if (usuario.getContrasena().equals(user.getContrasena()))	{
-				return true;			
-			} // if equals
-		} // if isPresent
-		return false;
-	}// validateUsuario
+        Optional<Usuario> userByEmail = usuarioRepository.findByCorreo(usuario.getCorreo());
+        if (userByEmail.isPresent()) {
+            Usuario user = userByEmail.get();
+            if (user.getContrasena().equals(usuario.getContrasena())) {
+//            if (passwordEncoder.matches(usuario.getContrasena(), user.getContrasena())) { //nuevo encoder
+                return true;
+            }
+
+        }
+        return false;
+    }
+
 }

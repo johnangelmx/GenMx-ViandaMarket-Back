@@ -10,17 +10,17 @@ public class Usuario {
     @Column(name = "idUsuarios", unique = true, nullable = false)
     private Integer id;
 
-    private String domicilio;
+    private String domicilio = "Desconocido";
 
-    private String nombres;
+    private String nombres = "John";
 
-    private String apellidos;
+    private String apellidos = "Doe";
 
-    private String correo;
+    private String correo = "johndoe@unkwon.com";
 
     private String contrasena;
 
-    private Integer edad;
+    private Integer edad = 18;
 
 
     public Usuario(String domicilio, String nombres, String apellidos, String correo, String contrasena, Integer edad) {
