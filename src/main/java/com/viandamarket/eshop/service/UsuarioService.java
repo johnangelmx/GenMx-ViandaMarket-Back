@@ -1,30 +1,33 @@
 package com.viandamarket.eshop.service;
-
-import java.util.ArrayList;
 import java.util.List;
-
+import java.util.Optional;
 import com.viandamarket.eshop.model.ChangePassword;
 import com.viandamarket.eshop.model.Usuario;
 import com.viandamarket.eshop.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
 public class UsuarioService {
     private final UsuarioRepository usuarioRepository;
-
+    
+    @Autowired 
+	private PasswordEncoder passwordEncoder;
+    
     @Autowired
     public UsuarioService(UsuarioRepository usuarioRepository) {
         this.usuarioRepository = usuarioRepository;
-    }
+    }//UsuarioService
 
     public List<Usuario> getAllUsuarios() {
         return usuarioRepository.findAll();
-    }
+    }//getAllUsuarios
 
     public Usuario getUsuario(Long id) {
-        return usuarioRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("El Usuario Con El ID: " + id + " No Existe"));
-    }
+        return usuarioRepository.findById(id)
+        		.orElseThrow(() -> new IllegalArgumentException("El Usuario Con El ID: " + id + " No Existe"));
+    }//getUsuario
 
     public Usuario deleteUsuario(Long id) {
         Usuario tmpUser = null;
@@ -34,15 +37,17 @@ public class UsuarioService {
             usuarioRepository.deleteById(id);
         }
         return tmpUser;
-    }
+    }//deleteUsuario
 
     public Usuario addUsuario(Usuario usuario) {
         Usuario tmpUser = null;
         if (usuarioRepository.findByCorreo(usuario.getCorreo()).isEmpty()) {
-            tmpUser = usuarioRepository.save(usuario);
+//			usuario.setContrasena(passwordEncoder.encode(usuario.getContrasena()));;
+            
+        	tmpUser = usuarioRepository.save(usuario);
         }
         return tmpUser;
-    }
+    }//addUsuario
 
     public Usuario updateUsuarioContrasena(Long id, ChangePassword changePassword) {
         Usuario tmp = null;
@@ -60,7 +65,7 @@ public class UsuarioService {
             System.out.println("Update - El usuario con el id " + id + " no existe");
         }
         return tmp;
-    }
+    }//updateUsuarioContrasena
 
     public Usuario updateUsuario(long id, String domicilio, String nombres, String apellidos, Integer edad) {
         Usuario tmpUser = null;
@@ -73,6 +78,17 @@ public class UsuarioService {
             usuarioRepository.save(tmpUser);
         }
         return tmpUser;
-    }
+    }//updateUsuario
 
+    public boolean validateUsuario(Usuario usuario) {
+		Optional<Usuario> userByCorreo = usuarioRepository.findByCorreo(usuario.getCorreo());
+		if (userByCorreo.isPresent()) {
+			Usuario user = userByCorreo.get();
+			if (passwordEncoder.matches(usuario.getContrasena(), user.getContrasena())) {
+//			if (usuario.getContrasena().equals(user.getContrasena()))	{
+				return true;			
+			} // if equals
+		} // if isPresent
+		return false;
+	}// validateUsuario
 }
