@@ -1,7 +1,7 @@
 CREATE database vianda_market_db;
 USE vianda_market_db;
 
-CREATE TABLE vianda_market_db.Usuarios
+CREATE TABLE vianda_market_db.usuarios
 (
     id_usuarios BIGINT       NOT NULL AUTO_INCREMENT,
     domicilio   VARCHAR(250) NOT NULL,
