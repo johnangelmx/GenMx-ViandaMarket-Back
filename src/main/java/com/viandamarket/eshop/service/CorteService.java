@@ -40,7 +40,7 @@ public class CorteService {
         return corteRepository.save(corte);
     }
 
-    public Corte updateCorte(long id, String nombre, Double precio, String descripcion_corte, Boolean disponibilidad, Float cantidad_disponible, Long idcalidades) {
+    public Corte updateCorte(long id, String nombre, Double precio, String descripcion_corte, Boolean disponibilidad, Float cantidad_disponible, Long idcalidades, String imagen) {
         Corte tmpCorte = null;
         if (corteRepository.existsById(id)) {
             tmpCorte = corteRepository.findById(id).get();
@@ -50,6 +50,7 @@ public class CorteService {
             if (disponibilidad != null) tmpCorte.setDisponibilidad(disponibilidad);
             if (cantidad_disponible != null) tmpCorte.setCantidad_disponible(cantidad_disponible);
             if (idcalidades != null) tmpCorte.setIdcalidades(idcalidades);
+            if (imagen != null) tmpCorte.setImagen(imagen);
             corteRepository.save(tmpCorte);
         } else {
             System.out.println("update - El corte con id " + id + " no existe");

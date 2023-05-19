@@ -54,8 +54,15 @@ public class CorteController {
     //-- Put - Update
     // Put para crear un elemento en especifico
     @PutMapping(path = "{corteId}")
-    public Corte addCorte(@PathVariable("corteId") long id, @RequestParam(required = false) String nombre, @RequestParam(required = false) Double precio, @RequestParam(required = false) String descripcion_corte, @RequestParam(required = false) Boolean disponibilidad, @RequestParam(required = false) Float cantidad_disponible, @RequestParam(required = false) Long idcalidades) {
-        return corteService.updateCorte(id, nombre, precio, descripcion_corte, disponibilidad, cantidad_disponible, idcalidades);
+    public Corte addCorte(@PathVariable("corteId") long id, 
+    		@RequestParam(required = false) String nombre, 
+    		@RequestParam(required = false) Double precio, 
+    		@RequestParam(required = false) String descripcion_corte, 
+    		@RequestParam(required = false) Boolean disponibilidad, 
+    		@RequestParam(required = false) Float cantidad_disponible, 
+    		@RequestParam(required = false) Long idcalidades,
+    		@RequestParam(required = false) String imagen){
+        return corteService.updateCorte(id, nombre, precio, descripcion_corte, disponibilidad, cantidad_disponible, idcalidades, imagen);
     }
 
 

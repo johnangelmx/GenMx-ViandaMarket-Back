@@ -19,24 +19,30 @@ public class Corte {
     private boolean disponibilidad;
     private float cantidad_disponible;
     private Long idcalidades;
+    private String imagen;
 
     //? Constructores ⬇
-    public Corte(String nombre, double precio, String descripcion_corte, boolean disponibilidad, float cantidad_disponible, Long idcalidades) {
-        this.nombre = nombre;
-        this.precio = precio;
-        this.descripcion_corte = descripcion_corte;
-        this.disponibilidad = disponibilidad;
-        this.cantidad_disponible = cantidad_disponible;
-        this.idcalidades = idcalidades;
-    }
-
-    public Corte() {
-    }
-    //? Getters & Setters ⬇
+ 
+    public Corte(Long id, String nombre, double precio, String descripcion_corte, boolean disponibilidad,
+			float cantidad_disponible, Long idcalidades, String imagen) {
+		super();
+		this.id = id;
+		this.nombre = nombre;
+		this.precio = precio;
+		this.descripcion_corte = descripcion_corte;
+		this.disponibilidad = disponibilidad;
+		this.cantidad_disponible = cantidad_disponible;
+		this.idcalidades = idcalidades;
+		this.imagen = imagen;
+	}
+    
+    public Corte() {}//default
+  
+	//? Getters & Setters ⬇
 
     public Long getId() {
         return id;
-    }
+    }//getId
 
     public void setId(Long id) {
         this.id = id;
@@ -89,12 +95,26 @@ public class Corte {
     public void setIdcalidades(Long idcalidades) {
         this.idcalidades = idcalidades;
     }
+    
+    public String getImagen() {
+ 		return imagen;
+ 	}
 
-    //? Getters & Setters ⬆
+ 	public void setImagen(String imagen) {
+ 		this.imagen = imagen;
+ 	}
+ 	
+ 	 //? Getters & Setters ⬆
     //? ToString() ⬇
 
-    @Override
-    public String toString() {
-        return "Corte{" + "id=" + id + ", nombre='" + nombre + '\'' + ", precio=" + precio + ", descripcion_corte='" + descripcion_corte + '\'' + ", disponibilidad=" + disponibilidad + ", cantidad_disponible=" + cantidad_disponible + ", idcalidades=" + idcalidades + '}';
-    }
+
+	@Override
+	public String toString() {
+		return "Corte [id=" + id + ", nombre=" + nombre + ", precio=" + precio + ", descripcion_corte="
+				+ descripcion_corte + ", disponibilidad=" + disponibilidad + ", cantidad_disponible="
+				+ cantidad_disponible + ", idcalidades=" + idcalidades + ", imagen=" + imagen + "]";
+	}
+
+
+	
 }

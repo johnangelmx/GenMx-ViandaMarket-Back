@@ -23,6 +23,7 @@ CREATE TABLE vianda_market_db.cortes
     cantidad_disponible FLOAT        NULL,
     idcalidades         BIGINT       NOT NULL,
     idgramos            BIGINT,
+    imagen				VARCHAR(500)
         PRIMARY KEY (idcortes),
     KEY (idcalidades)
 
