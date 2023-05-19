@@ -43,7 +43,7 @@ public class loginController {
     private String generateToken(String username) {
         // Creando calendario para establecer tiempo de caducidad de JWT ⬇️
         Calendar calendar = Calendar.getInstance();
-        calendar.add(Calendar.HOUR, 10);
+        calendar.add(Calendar.WEEK_OF_MONTH, 2);
         // Creando instancia JWT ⬇️
         return Jwts.builder() // Retorna y crea los parametros para generar el token
                 .setSubject(username) // Subjet nombre usuario
