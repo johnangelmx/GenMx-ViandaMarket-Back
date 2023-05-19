@@ -27,20 +27,28 @@ public class loginController {
         this.usuarioService = usuarioService;
     }
 
+    //    @PostMapping
+//    public Token loginUsuario(@RequestBody Usuario usuario) throws ServletException {
+//        try {
+//            Usuario tmpUsuario = null;
+//            if (usuarioService.validateUsuario(usuario)) {
+//                return new Token(generateToken(usuario.getContrasena()));
+//            }
+//            throw new ServletException("nombre usuario o contrasena incorretos");
+//        } catch (ServletException ex) {
+//            // Aquí puedes realizar cualquier acción necesaria, como loguear el error
+//            // y devolver una respuesta HTTP adecuada, por ejemplo:
+//            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "nombre usuario o contrasena incorretos", ex);
+//        }
+//    }
     @PostMapping
-    public Token loginUsuario(@RequestBody Usuario usuario) throws ServletException {
-        try {
-            Usuario tmpUsuario = null;
-            if (usuarioService.validateUsuario(usuario)) {
-                return new Token(generateToken(usuario.getContrasena()));
-            }
-            throw new ServletException("nombre usuario o contrasena incorretos");
-        } catch (ServletException ex) {
-            // Aquí puedes realizar cualquier acción necesaria, como loguear el error
-            // y devolver una respuesta HTTP adecuada, por ejemplo:
-            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "nombre usuario o contrasena incorretos", ex);
+    public Token loginUsuario(@RequestBody Usuario usuario) {
+        if (usuarioService.validateUsuario(usuario)) {
+            return new Token(generateToken(usuario.getContrasena()));
         }
+        return null;
     }
+
 
     @PutMapping(path = "{userId}")
     public Usuario updateUsuarioContrasena(@PathVariable("userId") long id, @RequestBody ChangePassword changePassword) {
