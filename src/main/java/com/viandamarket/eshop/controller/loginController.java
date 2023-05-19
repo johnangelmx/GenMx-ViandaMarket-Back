@@ -8,7 +8,9 @@ import com.viandamarket.eshop.model.Token;
 import com.viandamarket.eshop.model.Usuario;
 import com.viandamarket.eshop.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import javax.servlet.ServletException;
 import java.util.Calendar;
@@ -27,11 +29,17 @@ public class loginController {
 
     @PostMapping
     public Token loginUsuario(@RequestBody Usuario usuario) throws ServletException {
-        Usuario tmpUsuario = null;
-        if (usuarioService.validateUsuario(usuario)) {
-            return new Token(generateToken(usuario.getContrasena()));
+        try {
+            Usuario tmpUsuario = null;
+            if (usuarioService.validateUsuario(usuario)) {
+                return new Token(generateToken(usuario.getContrasena()));
+            }
+            throw new ServletException("nombre usuario o contrasena incorretos");
+        } catch (ServletException ex) {
+            // Aquí puedes realizar cualquier acción necesaria, como loguear el error
+            // y devolver una respuesta HTTP adecuada, por ejemplo:
+            throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "nombre usuario o contrasena incorretos", ex);
         }
-        throw new ServletException(" nombre usuario o contrasena incorretos");
     }
 
     @PutMapping(path = "{userId}")
