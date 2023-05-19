@@ -15,17 +15,17 @@ public class EshopApplication {
     }
 
     //? Componente a ejecutar esta aplicacion, y por el tipo de metodo detectará que es un filtro ⬇️
-    @Bean
-    public FilterRegistrationBean<JwtFilter> jwtFilter() {
-        FilterRegistrationBean<JwtFilter> registrationBean = new FilterRegistrationBean<>();
-        registrationBean.setFilter(new JwtFilter());
-//        registrationBean.addUrlPatterns("/api/*");
-        registrationBean.addUrlPatterns("/api/calidad/*");
-        registrationBean.addUrlPatterns("/api/complementos/*");
-        registrationBean.addUrlPatterns("/api/cortes/*");
-        registrationBean.addUrlPatterns("/api/usuarios/*");
-        registrationBean.addUrlPatterns("/api/gramos/*");
-        return registrationBean;
-    }
+//    @Bean
+//    public FilterRegistrationBean<JwtFilter> jwtFilter() {
+//        FilterRegistrationBean<JwtFilter> registrationBean = new FilterRegistrationBean<>();
+//        registrationBean.setFilter(new JwtFilter());
+////        registrationBean.addUrlPatterns("/api/*");
+//        registrationBean.addUrlPatterns("/api/calidad/*");
+//        registrationBean.addUrlPatterns("/api/complementos/*");
+//        registrationBean.addUrlPatterns("/api/cortes/*");
+//        registrationBean.addUrlPatterns("/api/usuarios/*");
+//        registrationBean.addUrlPatterns("/api/gramos/*");
+//        return registrationBean;
+//    }
 
 }
