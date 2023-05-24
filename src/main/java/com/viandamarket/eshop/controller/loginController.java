@@ -44,7 +44,8 @@ public class loginController {
     @PostMapping
     public Token loginUsuario(@RequestBody Usuario usuario) {
         if (usuarioService.validateUsuario(usuario)) {
-            return new Token(generateToken(usuario.getContrasena()));
+            String token = generateToken(usuario.getContrasena());
+            return new Token(token, usuario.getId());
         }
         return null;
     }
