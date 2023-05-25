@@ -79,17 +79,19 @@ public class UsuarioService {
         return tmpUser;
     }
 
-    public boolean validateUsuario(Usuario usuario) {
+    public Long validateUsuario(Usuario usuario) {
+        Long userId = 0L;
         Optional<Usuario> userByEmail = usuarioRepository.findByCorreo(usuario.getCorreo());
         if (userByEmail.isPresent()) {
             Usuario user = userByEmail.get();
 //            if (user.getContrasena().equals(usuario.getContrasena())) {
             if (passwordEncoder.matches(usuario.getContrasena(), user.getContrasena())) { //nuevo encoder
-                return true;
+                userId = user.getId();
+                return userId;
             }
 
         }
-        return false;
+        return userId;
     }
 
 }
