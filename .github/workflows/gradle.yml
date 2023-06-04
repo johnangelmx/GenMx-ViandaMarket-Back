@@ -26,8 +26,8 @@ jobs:
           java-version: 17
           distribution: 'adopt'
 
-      - name: Detener proceso anterior
-        run: pkill -f 'gradleInit.sh' || true
+#      - name: Detener proceso anterior
+#        run: pkill -f 'gradleInit.sh' || true
 
       - name: Grant execute permission to Gradle wrapper
         run: chmod +x gradlew
@@ -41,7 +41,5 @@ jobs:
           PROD_DB_USERNAME: ${{ secrets.PROD_DB_USERNAME }}
           PROD_DB_PASSWORD: ${{ secrets.PROD_DB_PASSWORD }}
 
-      - name: Ejecutar en segundo plano
-        run: |
-          # Comando para ejecutar en segundo plano
-          nohup ./gradleInit.sh > logs.txt 2>&1 &
+      - name: Ejecutar 
+        run: chmod +x gradleInit.sh && ./gradleInit.sh
