@@ -27,7 +27,7 @@ jobs:
           distribution: 'adopt'
 
       - name: Detener proceso anterior
-        run: pkill -f 'gradlew bootRun' || true
+        run: pkill -f 'gradleInit.sh' || true
 
       - name: Grant execute permission to Gradle wrapper
         run: chmod +x gradlew
@@ -44,4 +44,4 @@ jobs:
       - name: Ejecutar en segundo plano
         run: |
           # Comando para ejecutar en segundo plano
-          nohup ./gradlew bootRun > logs.txt 2>&1 &
+          nohup ./gradleInit.sh > logs.txt 2>&1 &
