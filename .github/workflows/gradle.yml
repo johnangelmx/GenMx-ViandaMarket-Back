@@ -26,6 +26,9 @@ jobs:
           java-version: 17
           distribution: 'adopt'
 
+      - name: Detener proceso anterior
+        run: pkill -f 'gradlew bootRun' || true
+
       - name: Grant execute permission to Gradle wrapper
         run: chmod +x gradlew
 
@@ -38,6 +41,7 @@ jobs:
           PROD_DB_USERNAME: ${{ secrets.PROD_DB_USERNAME }}
           PROD_DB_PASSWORD: ${{ secrets.PROD_DB_PASSWORD }}
 
-      - name: Run application
+      - name: Ejecutar en segundo plano
         run: |
-          pm2 start java -- ./gradlew bootRun --watch
+          # Comando para ejecutar en segundo plano
+          nohup ./gradlew bootRun > logs.txt 2>&1 &
