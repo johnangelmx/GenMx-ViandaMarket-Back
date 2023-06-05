@@ -1,0 +1,130 @@
+.fixheader {
+    height: 6.4vw;
+}
+
+@font-face {
+    font-family: MADEmirage;
+    src: url(../font/MADE\ Mirage\ Regular.otf);
+}
+
+@font-face {
+    font-family: Mirage-bold;
+    src: url("../font/MADE-Mirage-Bold.otf")
+}
+
+@import url('https://fonts.cdnfonts.com/css/josefin-sans%27');
+#btnClear {
+    display: none;
+  }
+  
+
+
+.toast-body{
+    color:#fff!important;
+}
+#Titulo1 {
+    display: grid;
+    width: auto;
+    grid-template-rows: max-content;
+   
+    color: black;
+    font-size: 2.25rem;
+    margin-top: 2rem;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+#Titulo2 {
+    display: grid;
+    width: auto;
+    grid-template-rows: max-content;
+  
+    color: black;
+    font-size: 1.5rem;
+    font-weight: 300;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+#btnAgregar {
+    background: linear-gradient(180deg, #B81C00 40.88%, #7A1212 96.49%);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    margin-bottom: 0.5rem;
+    font-family: 'Josefin Sans', sans-serif;
+    font-style: normal;
+width: 50%;
+    color: white;
+
+}
+.contraseña{
+    font-family: 'Josefin Sans', sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: .8rem;
+    line-height: 20px;
+    text-align: justify;   
+}
+
+input.form-control {
+    border-radius: 1em;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+
+}
+
+.contenedorform {
+    max-width: 60rem;
+    width: 40rem;   
+    background: rgba(217, 217, 217, 0.69);
+    backdrop-filter: blur(3px);
+    border-radius: 16px;
+    justify-content: center;
+}
+
+.ayudaInicioSesion {
+    text-align: center;
+}
+
+.h6 {
+    cursor: pointer;
+    color: black;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 300;
+}
+
+.h6:hover {
+    cursor: pointer;
+    color: #B81C00;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 1.25rem;
+}
+
+.fondoform {
+    background-image: url(/assets/img/Carnes/fondo\ inicio.jpg);
+    background-size: cover;
+    background-position: left center;
+
+}
+
+.contenedorform1 {
+    padding: 4.5rem;
+    border-radius: 10px;
+
+}
+
+.wrapperPass{
+    position: relative;
+}
+
+
+.wrapperPass i{
+    position: absolute;
+    right: 5%;
+    top:50%;
+    transform:translateY(-50%);
+    font-size: 100%;
+    color: #7A1212;
+    cursor: pointer;
+    /* display: none; */
+    
+}
+

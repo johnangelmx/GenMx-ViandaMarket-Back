@@ -1,0 +1,108 @@
+
+ @import url('https://fonts.cdnfonts.com/css/josefin-sans');
+
+.title{
+    margin-top: 5vw;
+    height: 16vw;
+    background-color:rgba(184, 28, 0, 1);
+}
+
+.title h1{
+    font-family: 'MADE Mirage';
+    src: url(./fonts/MADE\ MIRAGE/);
+    color: rgba(252, 247, 241, 1);
+    padding-top: 11%;
+    text-align: center;
+    font-size: 4vw;
+    font-weight: 400;
+   
+}
+
+@media (min-width:800px) {
+    .title {
+        height: 8vw;
+    }
+
+    .title h1 {
+        padding-top: 3%;
+    }
+}
+
+#descripcion {
+    font-family: 'Josefin Sans';
+    
+}
+
+
+#tablaInter {
+    width: 100%;
+}
+
+.imagenContenedor {
+    display: grid;
+    grid-template-rows: min-content;
+    margin-left: 8%;
+
+}
+
+
+
+
+
+#imagenCox {
+    width: 100%;
+    padding-right: 5%;
+
+}
+
+.card-img-top {
+       
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.card-text {
+    text-align: justify;
+   
+}
+
+.card-title {
+    text-align: center;
+    font-family: 'MADE Mirage';
+    color: rgba(184, 28, 0, 1);
+}
+
+h4 {
+    text-align: center;
+    font-family: 'MADE Mirage';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 3rem;
+    letter-spacing: -0.32px;
+}
+
+.card-text-custom {
+    width: 290px;
+}
+
+#t12 {
+    text-align: center;
+    font-family: 'MADE Mirage';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.5rem;
+    letter-spacing: -0.32px;
+
+}
+
+@media (min-width:800px) {
+ 
+
+    .terminoCox {
+        margin: 5%;
+        align-items: center;
+        display: grid;
+        grid-template-columns: 0.8fr 1fr;
+        gap: 1vw;
+
+    }
+}
