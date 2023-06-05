@@ -27,7 +27,7 @@ jobs:
           distribution: 'adopt'
 
       - name: Detener proceso anterior
-        run: pm2 stop gradleInit.sh
+        run: pm2 stop gradleInit.sh || true
 
       - name: Grant execute permission to Gradle wrapper
         run: chmod +x gradleInit.sh
