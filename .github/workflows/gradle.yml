@@ -26,16 +26,16 @@ jobs:
           java-version: 17
           distribution: 'adopt'
 
-#      - name: Detener proceso anterior
-#        run: pkill -f 'gradleInit.sh' || true
+      #      - name: Detener proceso anterior
+      #        run: pkill -f 'gradleInit.sh' || true
 
-      - name: Grant execute permission to Gradle wrapper
-        run: chmod +x gradlew
+      #      - name: Grant execute permission to Gradle wrapper
+      #        run: chmod +x gradlew
 
       - name: Build application
-        run: ./gradlew build
-        
-      - name: Ejecutar 
+        run: gradle build
+
+      - name: Ejecutar
         run: chmod +x gradleInit.sh && ./gradleInit.sh
         env:
           PROD_DB_HOST: ${{ secrets.PROD_DB_HOST }}
