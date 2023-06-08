@@ -21,10 +21,10 @@ jobs:
 
       - name: Detener proceso anterior
         run: pm2 stop java || true
-      
-      - run: git submodule init 
+
+      - run: git submodule init
       - run: git submodule update
-      
+
       - name: Build application
         run: gradle build
 
