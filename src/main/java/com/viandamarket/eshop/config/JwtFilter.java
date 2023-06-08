@@ -31,7 +31,7 @@ public class JwtFilter extends GenericFilterBean {
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
         HttpServletRequest httpServletRequest = (HttpServletRequest) request;
         String authHeader = httpServletRequest.getHeader("authorization");
-        if (("POST".equals(httpServletRequest.getMethod())) ||
+        if (("POST".equals(httpServletRequest.getMethod())) && !httpServletRequest.getRequestURI().contains("/api/usuarios/") ||
                 (("GET".equals(httpServletRequest.getMethod())) && (!httpServletRequest.getRequestURI().contains("/api/cortes/"))) ||
                 ("PUT".equals(httpServletRequest.getMethod())) || ("DELETE".equals(httpServletRequest.getMethod()))) {
             if (authHeader == null || !authHeader.startsWith("Bearer: ")) {
