@@ -25,6 +25,7 @@ public class EshopApplication {
         registrationBean.addUrlPatterns("/api/cortes/*");
         registrationBean.addUrlPatterns("/api/usuarios/*");
         registrationBean.addUrlPatterns("/api/gramos/*");
+        registrationBean.addUrlPatterns("/api/pedidos/*");
         return registrationBean;
     }
 
