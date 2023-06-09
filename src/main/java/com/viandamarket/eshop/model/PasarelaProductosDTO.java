@@ -3,13 +3,13 @@ package com.viandamarket.eshop.model;
 import java.util.List;
 
 public class PasarelaProductosDTO {
-	 private List<ProductoDTO> productos;
+	 private List<Pedido> productos;
 
-	    public List<ProductoDTO> getProductos() {
+	    public List<Pedido> getProductos() {
 	        return productos;
 	    }
 
-	    public void setProductos(List<ProductoDTO> productos) {
+	    public void setProductos(List<Pedido> productos) {
 	        this.productos = productos;
 	    }
 }

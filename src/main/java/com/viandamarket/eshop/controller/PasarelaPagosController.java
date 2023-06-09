@@ -5,7 +5,7 @@ import com.stripe.exception.StripeException;
 import com.stripe.model.checkout.Session;
 import com.stripe.param.checkout.SessionCreateParams;
 import com.viandamarket.eshop.model.PasarelaProductosDTO;
-import com.viandamarket.eshop.model.ProductoDTO;
+import com.viandamarket.eshop.model.Pedido;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
@@ -33,7 +33,7 @@ public class PasarelaPagosController {
 																	// el pago
 					.addPaymentMethodType(SessionCreateParams.PaymentMethodType.CARD);
 
-			for (ProductoDTO producto : pasarelaProductos.getProductos()) {
+			for (Pedido producto : pasarelaProductos.getProductos()) {
 				builder.addLineItem(
 					SessionCreateParams.LineItem
 						.builder().setQuantity((long) producto.getCantidad()).setPriceData(
