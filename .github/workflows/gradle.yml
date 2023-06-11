@@ -17,13 +17,14 @@ jobs:
         uses: actions/setup-java@v3
         with:
           java-version: 17
-          distribution: 'adopt'
+          distribution: "adopt"
 
       - name: Detener proceso anterior
         run: pm2 stop java || true
 
       - run: git submodule init
       - run: git submodule update
+      - run: git submodule update --remote --recursive
 
       - name: Build application
         run: gradle build
