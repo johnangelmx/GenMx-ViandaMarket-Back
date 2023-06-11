@@ -62,8 +62,13 @@ public class UsuarioController {
 //    }
 
     @PutMapping(path = "{prodId}")
-    public Usuario updateUsuario(@PathVariable("prodId") long id, @RequestParam(required = false) String domicilio, @RequestParam(required = false) String nombres, @RequestParam(required = false) String apellidos, @RequestParam(required = false) Integer edad) {
-        return usuarioService.updateUsuario(id, domicilio, nombres, apellidos, edad);
+    public Usuario updateUsuario(@PathVariable("prodId") long id,
+                                 @RequestParam(required = false) String correo,
+                                 @RequestParam(required = false) String domicilio,
+                                 @RequestParam(required = false) String nombres,
+                                 @RequestParam(required = false) String apellidos,
+                                 @RequestParam(required = false) Integer edad) {
+        return usuarioService.updateUsuario(id, correo, domicilio, nombres, apellidos, edad);
     }
 
 }
