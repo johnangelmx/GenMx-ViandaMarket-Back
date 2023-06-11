@@ -25,6 +25,7 @@ jobs:
       - run: git submodule init
       - run: git submodule update
       - run: git submodule update --remote --recursive
+      - run: git submodule foreach --recursive 'git submodule update --remote'
 
       - name: Build application
         run: gradle build
