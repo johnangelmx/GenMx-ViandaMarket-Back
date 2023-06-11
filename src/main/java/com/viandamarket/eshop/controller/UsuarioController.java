@@ -50,7 +50,6 @@ public class UsuarioController {
     @PostMapping
     public Usuario addUsuario(@RequestBody Usuario usuario) {
         return usuarioService.addUsuario(usuario);
-
     }
 
     //-- Put - Update
@@ -62,8 +61,13 @@ public class UsuarioController {
 //    }
 
     @PutMapping(path = "{prodId}")
-    public Usuario updateUsuario(@PathVariable("prodId") long id, @RequestParam(required = false) String domicilio, @RequestParam(required = false) String nombres, @RequestParam(required = false) String apellidos, @RequestParam(required = false) Integer edad) {
-        return usuarioService.updateUsuario(id, domicilio, nombres, apellidos, edad);
+    public Usuario updateUsuario(@PathVariable("prodId") long id,
+                                 @RequestParam(required = false) String domicilio,
+                                 @RequestParam(required = false) String nombres,
+                                 @RequestParam(required = false) String apellidos,
+                                 @RequestParam(required = false) Boolean status,
+                                 @RequestParam(required = false) String rol) {
+        return usuarioService.updateUsuario(id, domicilio, nombres, apellidos, status, rol);
     }
 
 }
