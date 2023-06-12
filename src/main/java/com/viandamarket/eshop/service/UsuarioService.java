@@ -66,10 +66,11 @@ public class UsuarioService {
         return tmp;
     }
 
-    public Usuario updateUsuario(long id, String domicilio, String nombres, String apellidos, Integer edad) {
+    public Usuario updateUsuario(long id, String correo, String domicilio, String nombres, String apellidos, Integer edad) {
         Usuario tmpUser = null;
         if (usuarioRepository.existsById(id)) {
             tmpUser = usuarioRepository.findById(id).get();
+            if (correo != null) tmpUser.setCorreo(correo);
             if (domicilio != null) tmpUser.setDomicilio(domicilio);
             if (nombres != null) tmpUser.setNombres(nombres);
             if (apellidos != null) tmpUser.setApellidos(apellidos);
