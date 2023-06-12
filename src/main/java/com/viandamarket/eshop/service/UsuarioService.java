@@ -66,15 +66,15 @@ public class UsuarioService {
         return tmp;
     }
 
-    public Usuario updateUsuario(long id, String correo, String domicilio, String nombres, String apellidos, Integer edad) {
+    public Usuario updateUsuario(long id, String domicilio, String nombres, String apellidos, Boolean status, String rol) {
         Usuario tmpUser = null;
         if (usuarioRepository.existsById(id)) {
             tmpUser = usuarioRepository.findById(id).get();
-            if (correo != null) tmpUser.setCorreo(correo);
             if (domicilio != null) tmpUser.setDomicilio(domicilio);
             if (nombres != null) tmpUser.setNombres(nombres);
             if (apellidos != null) tmpUser.setApellidos(apellidos);
-            if (edad != null) tmpUser.setEdad(edad);
+            if (status != null) tmpUser.setStatus(status);
+            if (rol != null) tmpUser.setRol(rol);
             usuarioRepository.save(tmpUser);
         }
         return tmpUser;
@@ -94,5 +94,4 @@ public class UsuarioService {
         }
         return userId;
     }
-
 }

@@ -1,5 +1,7 @@
-CREATE database vianda_market_db;
-USE vianda_market_db;
+CREATE
+    database vianda_market_db;
+USE
+    vianda_market_db;
 
 CREATE TABLE vianda_market_db.usuarios
 (
@@ -9,7 +11,8 @@ CREATE TABLE vianda_market_db.usuarios
     apellidos   VARCHAR(50)  NOT NULL,
     correo      VARCHAR(45)  NOT NULL,
     contrasena  VARCHAR(60)  NOT NULL,
-    edad        INT          NULL,
+    status      BOOLEAN      NOT NULL,
+    rol         VARCHAR(15)  NOT NULL,
     PRIMARY KEY (id_usuarios)
 );
  

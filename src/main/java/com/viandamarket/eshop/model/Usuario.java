@@ -10,7 +10,7 @@ public class Usuario {
     @Column(name = "id_usuarios", unique = true, nullable = false)
     private Long id;
 
-    private String domicilio = "Desconocido";
+    private String domicilio = "No Asignado";
 
     private String nombres = "John";
 
@@ -20,23 +20,26 @@ public class Usuario {
 
     private String contrasena;
 
-    private Integer edad = 18;
+    private Boolean status = true;
+    private String rol = "cliente";
+
 
     //? Contructors ⬇
 
-    public Usuario(String domicilio, String nombres, String apellidos, String correo, String contrasena, Integer edad) {
+    public Usuario(String domicilio, String nombres, String apellidos, String correo, String contrasena, Boolean status, String rol) {
         this.domicilio = domicilio;
         this.nombres = nombres;
         this.apellidos = apellidos;
         this.correo = correo;
         this.contrasena = contrasena;
-        this.edad = edad;
+        this.status = status;
+        this.rol = rol;
     }
 
     public Usuario() {
+
     }
     //? Setter & Getter ⬇
-
 
     public Long getId() {
         return id;
@@ -86,20 +89,36 @@ public class Usuario {
         this.contrasena = contrasena;
     }
 
-    public Integer getEdad() {
-        return edad;
+    public Boolean getStatus() {
+        return status;
     }
 
-    public void setEdad(Integer edad) {
-        this.edad = edad;
+    public void setStatus(Boolean status) {
+        this.status = status;
+    }
+
+    public String getRol() {
+        return rol;
+    }
+
+    public void setRol(String rol) {
+        this.rol = rol;
     }
 
     //? Setter & Getter ⬆ ️
 
     //? To String ⬇
-
     @Override
     public String toString() {
-        return "Usuario{" + "id=" + id + ", domicilio='" + domicilio + '\'' + ", nombres='" + nombres + '\'' + ", apellidos='" + apellidos + '\'' + ", correo='" + correo + '\'' + ", contrasena='" + contrasena + '\'' + ", edad=" + edad + '}';
+        return "Usuario{" +
+                "id=" + id +
+                ", domicilio='" + domicilio + '\'' +
+                ", nombres='" + nombres + '\'' +
+                ", apellidos='" + apellidos + '\'' +
+                ", correo='" + correo + '\'' +
+                ", contrasena='" + contrasena + '\'' +
+                ", status=" + status +
+                ", rol='" + rol + '\'' +
+                '}';
     }
 }
