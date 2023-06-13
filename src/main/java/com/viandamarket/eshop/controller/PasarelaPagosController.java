@@ -13,14 +13,16 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @RestController
+@RequestMapping(path = "/api/")
 public class PasarelaPagosController {
 
 	@Value("${stripe.secretKey}") // Se debe configurar en el archivo application.properties
 	private String stripeSecretKey;
 
-	@PostMapping("/ruta-hacia-el-backend") // Mismo endpoint que se utilizó en el frontend
+	@PostMapping("pasarela-pagos") // Mismo endpoint que se utilizó en el frontend
 	public ResponseEntity<String> crearSessionPago(@RequestBody PasarelaProductosDTO pasarelaProductos) {
 		try {
 			// Configurar la clave secreta de Stripe
