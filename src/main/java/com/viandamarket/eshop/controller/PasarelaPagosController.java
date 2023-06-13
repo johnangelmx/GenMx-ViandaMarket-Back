@@ -35,15 +35,15 @@ public class PasarelaPagosController {
 																	// el pago
 					.addPaymentMethodType(SessionCreateParams.PaymentMethodType.CARD);
 
-			for (Pedido producto : pasarelaProductos.getProductos()) {
+			for (Pedido pedido : pasarelaProductos.getProductos()) {
 				builder.addLineItem(
 					SessionCreateParams.LineItem
-						.builder().setQuantity((long) producto.getCantidad()).setPriceData(
+						.builder().setQuantity((long) pedido.getCantidad()).setPriceData(
 							SessionCreateParams.LineItem.PriceData.builder().setCurrency("USD") // Moneda de
 																											// la compra
-						.setUnitAmount((long) (producto.getPrecio() * 100)) // Precio en centavos
+						.setUnitAmount((long) (pedido.getPrecio() * 100)) // Precio en centavos
 						.setProductData(SessionCreateParams.LineItem.PriceData.ProductData
-						.builder().setName(producto.getNombre()).build())
+						.builder().setName(pedido.getNombre()).build())
 					.build())
 					.build());
 			}
