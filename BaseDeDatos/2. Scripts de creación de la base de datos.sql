@@ -15,7 +15,7 @@ CREATE TABLE vianda_market_db.usuarios
     rol         VARCHAR(15)  NOT NULL,
     PRIMARY KEY (id_usuarios)
 );
- 
+
 CREATE TABLE vianda_market_db.cortes
 (
     idcortes            BIGINT       NOT NULL AUTO_INCREMENT,
@@ -66,11 +66,13 @@ CREATE TABLE vianda_market_db.gramos
 
 CREATE TABLE vianda_market_db.pedidos
 (
-    idpedido       BIGINT NOT NULL auto_increment,
-    nombre			VARCHAR(500) NOT NULL,
-    precio       INT    NOT NULL,
-    cantidad       INT    NOT NULL,
-    id_usuarios       BIGINT    NOT NULL,
+    idpedido       BIGINT       NOT NULL auto_increment,
+    nombre         VARCHAR(500) NOT NULL,
+    precio         INT          NOT NULL,
+    cantidad       INT          NOT NULL,
+    estatus        BOOL         NOT NULL,
+    fecha_guardado DATETIME     NOT NULL,
+    id_usuarios    BIGINT       NOT NULL,
     PRIMARY KEY (idpedido),
     KEY (id_usuarios)
 );
