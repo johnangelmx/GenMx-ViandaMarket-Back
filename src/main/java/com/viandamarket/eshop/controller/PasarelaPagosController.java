@@ -10,6 +10,7 @@ import com.viandamarket.eshop.model.Pedido;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,6 +22,15 @@ import java.util.List;
 @RequestMapping(path = "/api/")
 public class PasarelaPagosController {
 
+	@GetMapping("/success")
+    public String redirectSuccess() {
+        return "redirect:/static/exito.html";
+    }
+	@GetMapping("/cancel")
+    public String redirectCansel() {
+        return "redirect:/static/exito.html";
+    }
+
     @Value("${stripe.secretKey}") // Se debe configurar en el archivo application.properties
     private String stripeSecretKey;
 
@@ -29,14 +39,11 @@ public class PasarelaPagosController {
         try {
             // Configurar la clave secreta de Stripe
             Stripe.apiKey = stripeSecretKey;
-
-            String baseUrl = ServletUriComponentsBuilder.fromCurrentContextPath().build().toUriString();
-            String successUrl = baseUrl + "/exito";
-            String cancelUrl = baseUrl + "/cancelar";
+ 
             // Crear un objeto SessionCreateParams con los detalles de la compra
             SessionCreateParams.Builder builder = new SessionCreateParams.Builder();
-            builder.setSuccessUrl("http://localhost:8080/exito") // URL a la que se redirigirá después del pago exitoso
-                    .setCancelUrl("http://localhost:8080/carrito.html") // URL a la que se redirigirá si el usuario cancela
+            builder.setSuccessUrl("/success") // URL a la que se redirigirá después del pago exitoso
+                    .setCancelUrl("/cancel") // URL a la que se redirigirá si el usuario cancela
                     // el pago
                     .addPaymentMethodType(SessionCreateParams.PaymentMethodType.CARD)
                     .setMode(SessionCreateParams.Mode.PAYMENT);
