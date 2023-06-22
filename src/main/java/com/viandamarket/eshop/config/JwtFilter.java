@@ -32,7 +32,7 @@ public class JwtFilter extends GenericFilterBean {
         HttpServletRequest httpServletRequest = (HttpServletRequest) request;
         String authHeader = httpServletRequest.getHeader("authorization");
         if (("POST".equals(httpServletRequest.getMethod())) && !httpServletRequest.getRequestURI().contains("/api/usuarios/") ||
-                ("GET".equals(httpServletRequest.getMethod())) && (!httpServletRequest.getRequestURI().contains("/api/cortes/")) && (!httpServletRequest.getRequestURI().contains("/api/calidad/")) ||
+                ("GET".equals(httpServletRequest.getMethod())) && (!httpServletRequest.getRequestURI().contains("/api/cortes/")) && (!httpServletRequest.getRequestURI().contains("/api/calidad/")) && (!httpServletRequest.getRequestURI().contains("/api/gramos/")) ||
                 ("PUT".equals(httpServletRequest.getMethod())) || ("DELETE".equals(httpServletRequest.getMethod()))) {
             if (authHeader == null || !authHeader.startsWith("Bearer: ")) {
                 throw new ServletException("1. Invalid Token");
