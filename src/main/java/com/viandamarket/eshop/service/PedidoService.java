@@ -4,13 +4,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
- 
-import com.viandamarket.eshop.model.Pedido; 
+
+import com.viandamarket.eshop.model.Pedido;
 import com.viandamarket.eshop.repository.PedidoRepository;
 
 @Service
 public class PedidoService {
-	public final PedidoRepository pedidoRepository; 
+    public final PedidoRepository pedidoRepository;
+
     @Autowired
     public PedidoService(PedidoRepository pedidoRepository) {
         this.pedidoRepository = pedidoRepository;
@@ -36,14 +37,16 @@ public class PedidoService {
     public Pedido addPedido(Pedido id_pedido) {
         return pedidoRepository.save(id_pedido);
     }// addPedido
-    public Pedido updatePedido(Long id_pedido, String nombre, Integer precio, Integer cantidad, Long id_usuarios) {
+
+    public Pedido updatePedido(Long id_pedido, String nombre, Integer precio, Integer cantidad, Boolean estatus, Long id_usuarios) {
         Pedido tmPedido = null;
         if (pedidoRepository.existsById(id_pedido)) {
             tmPedido = pedidoRepository.findById(id_pedido).get();
-            if (cantidad != null) tmPedido.setNombre(nombre);
-            if (cantidad != null) tmPedido.setPrecio(precio);
+            if (nombre != null) tmPedido.setNombre(nombre);
+            if (precio != null) tmPedido.setPrecio(precio);
             if (cantidad != null) tmPedido.setCantidad(cantidad);
-            if (cantidad != null) tmPedido.setId_usuarios(id_usuarios);
+            if (estatus != null) tmPedido.setEstatus(estatus);
+            if (id_usuarios != null) tmPedido.setId_usuarios(id_usuarios);
             pedidoRepository.save(tmPedido);
         } else {
             System.out.println("Update - Los Pedidos con id " + id_pedido + " no existen");

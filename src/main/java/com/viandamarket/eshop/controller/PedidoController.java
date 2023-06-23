@@ -56,8 +56,9 @@ public class PedidoController {
             @RequestParam(required = false) String nombre,
             @RequestParam(required = false) Integer precio,
             @RequestParam(required = false) Integer cantidad,
+            @RequestParam(required = false) Boolean estatus,
             @RequestParam(required = false) Long id_usuarios) {
-        return pedidoService.updatePedido(id_pedido, nombre, precio, cantidad, id_usuarios);
+        return pedidoService.updatePedido(id_pedido, nombre, precio, cantidad,estatus, id_usuarios);
     }
 
 }
