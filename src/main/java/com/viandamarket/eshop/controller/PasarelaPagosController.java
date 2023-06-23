@@ -22,15 +22,6 @@ import java.util.List;
 @RequestMapping(path = "/api/")
 public class PasarelaPagosController {
 
-	@GetMapping("/success")
-    public String redirectSuccess() {
-        return "redirect:/static/perfilusuario.html";
-    }
-	@GetMapping("/cancel")
-    public String redirectCansel() {
-        return "redirect:/static/carrito.html";
-    }
-
     @Value("${stripe.secretKey}") // Se debe configurar en el archivo application.properties
     private String stripeSecretKey;
 
@@ -39,11 +30,11 @@ public class PasarelaPagosController {
         try {
             // Configurar la clave secreta de Stripe
             Stripe.apiKey = stripeSecretKey;
- 
+
             // Crear un objeto SessionCreateParams con los detalles de la compra
             SessionCreateParams.Builder builder = new SessionCreateParams.Builder();
-            builder.setSuccessUrl("/success") // URL a la que se redirigirá después del pago exitoso
-                    .setCancelUrl("/cancel") // URL a la que se redirigirá si el usuario cancela
+            builder.setSuccessUrl("http://localhost:8080/perfilusuario.html?success") // URL a la que se redirigirá después del pago exitoso
+                    .setCancelUrl("http://localhost:8080/carrito.html") // URL a la que se redirigirá si el usuario cancela
                     // el pago
                     .addPaymentMethodType(SessionCreateParams.PaymentMethodType.CARD)
                     .setMode(SessionCreateParams.Mode.PAYMENT);
