@@ -24,11 +24,11 @@ public class PasarelaPagosController {
 
 	@GetMapping("/success")
     public String redirectSuccess() {
-        return "redirect:/static/exito.html";
+        return "redirect:/static/perfilusuario.html";
     }
 	@GetMapping("/cancel")
     public String redirectCansel() {
-        return "redirect:/static/exito.html";
+        return "redirect:/static/carrito.html";
     }
 
     @Value("${stripe.secretKey}") // Se debe configurar en el archivo application.properties
