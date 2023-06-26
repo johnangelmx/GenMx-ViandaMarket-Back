@@ -1,1 +1,0 @@
-java -jar -Dserver.port=8080 build/libs/eshop-0.0.1-SNAPSHOT.jar
