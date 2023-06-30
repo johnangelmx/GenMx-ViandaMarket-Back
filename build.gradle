@@ -20,6 +20,7 @@ dependencies {
     runtimeOnly 'com.mysql:mysql-connector-j'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation "org.mockito:mockito-core:3.+"
-	implementation 'com.stripe:stripe-java:22.23.1'
-    
+    implementation 'com.stripe:stripe-java:22.24.0'
+    implementation 'org.jasypt:jasypt:1.9.3'
+    implementation 'org.json:json:20210307'
 }

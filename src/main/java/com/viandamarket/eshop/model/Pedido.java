@@ -2,23 +2,17 @@ package com.viandamarket.eshop.model;
 
 import org.hibernate.annotations.CreationTimestamp;
 
-import javax.persistence.Column;
+import javax.persistence.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "pedidos")
 public class Pedido {
-
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY) //? Asigna al campo el valor autoincremental
     @Column(name = "idpedido", unique = true, nullable = false)
-    private long id_pedido;
+    private Long id_pedido;
     private String nombre;
     private int precio;
     private int cantidad;
@@ -29,9 +23,8 @@ public class Pedido {
     @Column(columnDefinition = "integer default 0")
     private Long id_usuarios;
 
-    public Pedido(long id_pedido, String nombre, int precio, int cantidad, boolean estatus, LocalDateTime fechaGuardado,
+    public Pedido(String nombre, int precio, int cantidad, boolean estatus, LocalDateTime fechaGuardado,
                   Long id_usuarios) {
-        this.id_pedido = id_pedido;
         this.nombre = nombre;
         this.precio = precio;
         this.cantidad = cantidad;
@@ -43,14 +36,16 @@ public class Pedido {
     public Pedido() {
     }
 
-    public long getid_pedido() {
+    public Pedido(String nombre, int precio, int cantidad, int id_usuarios) {
+        this.nombre = nombre;
+        this.precio = precio;
+        this.cantidad = cantidad;
+        this.id_usuarios = (long) id_usuarios;
+    }
+
+    public Long getId_pedido() {
         return id_pedido;
     }
-
-    public void setid_pedido(long id_pedido) {
-        this.id_pedido = id_pedido;
-    }
-
     public String getNombre() {
         return nombre;
     }
