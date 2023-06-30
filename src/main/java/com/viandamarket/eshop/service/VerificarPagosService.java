@@ -29,7 +29,6 @@ public class VerificarPagosService {
     private String stripeSecretKey;
 
 
-
     public Boolean verificarCompra(String sessionId) {
         try {
             Stripe.apiKey = stripeSecretKey;
@@ -85,11 +84,12 @@ public class VerificarPagosService {
             JSONObject jsonObject = jsonArray.getJSONObject(i);
 
             String nombre = jsonObject.getString("nombre");
-            int precio = jsonObject.getInt("precio");
+            long precio = jsonObject.getLong("precio");
             int cantidad = jsonObject.getInt("cantidad");
+            int gramaje = jsonObject.getInt("gramaje");
             int id_usuarios = jsonObject.getInt("id_usuarios");
 
-            Pedido pedido = new Pedido(nombre, precio, cantidad, id_usuarios);
+            Pedido pedido = new Pedido(nombre, precio, gramaje, cantidad, id_usuarios);
             pedidos.add(pedido);
         }
 

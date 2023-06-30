@@ -38,12 +38,13 @@ public class PedidoService {
         return pedidoRepository.save(id_pedido);
     }// addPedido
 
-    public Pedido updatePedido(Long id_pedido, String nombre, Integer precio, Integer cantidad, Boolean estatus, Long id_usuarios) {
+    public Pedido updatePedido(Long id_pedido, String nombre, Long precio, Integer gramaje, Integer cantidad, Boolean estatus, Long id_usuarios) {
         Pedido tmPedido = null;
         if (pedidoRepository.existsById(id_pedido)) {
             tmPedido = pedidoRepository.findById(id_pedido).get();
             if (nombre != null) tmPedido.setNombre(nombre);
             if (precio != null) tmPedido.setPrecio(precio);
+            if (gramaje != null) tmPedido.setGramaje(gramaje);
             if (cantidad != null) tmPedido.setCantidad(cantidad);
             if (estatus != null) tmPedido.setEstatus(estatus);
             if (id_usuarios != null) tmPedido.setId_usuarios(id_usuarios);

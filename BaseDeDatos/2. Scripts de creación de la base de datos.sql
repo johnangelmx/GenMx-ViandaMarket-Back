@@ -68,7 +68,8 @@ CREATE TABLE vianda_market_db.pedidos
 (
     idpedido       BIGINT       NOT NULL auto_increment,
     nombre         VARCHAR(500) NOT NULL,
-    precio         INT          NOT NULL,
+    precio         BIGINT         NOT NULL,
+    gramaje        INT          NOT NULL,
     cantidad       INT          NOT NULL,
     estatus        BOOL         NOT NULL,
     fecha_guardado DATETIME     NOT NULL,

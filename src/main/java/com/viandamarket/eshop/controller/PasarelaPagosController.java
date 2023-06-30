@@ -107,6 +107,7 @@ public class PasarelaPagosController {
             sb.append("    {\n");
             sb.append("        \"nombre\": \"" + pedido.getNombre() + "\",\n");
             sb.append("        \"precio\": " + pedido.getPrecio() + ",\n");
+            sb.append("        \"gramaje\": " + pedido.getGramaje() + ",\n");
             sb.append("        \"cantidad\": " + pedido.getCantidad() + ",\n");
             sb.append("        \"id_usuarios\": " + pedido.getId_usuarios() + "\n");
             sb.append("    },\n");

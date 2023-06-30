@@ -1,8 +1,8 @@
 package com.viandamarket.eshop.controller;
 
 import java.util.List;
- 
-import com.viandamarket.eshop.service.PedidoService; 
+
+import com.viandamarket.eshop.service.PedidoService;
 import com.viandamarket.eshop.model.Pedido;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -53,12 +53,13 @@ public class PedidoController {
     // Put para crear un elemento en especifico
     @PutMapping(path = "{idPedido}")
     public Pedido addPedido(@PathVariable("idPedido") long id_pedido,
-            @RequestParam(required = false) String nombre,
-            @RequestParam(required = false) Integer precio,
-            @RequestParam(required = false) Integer cantidad,
-            @RequestParam(required = false) Boolean estatus,
-            @RequestParam(required = false) Long id_usuarios) {
-        return pedidoService.updatePedido(id_pedido, nombre, precio, cantidad,estatus, id_usuarios);
+                            @RequestParam(required = false) String nombre,
+                            @RequestParam(required = false) Long precio,
+                            @RequestParam(required = false) Integer gramaje,
+                            @RequestParam(required = false) Integer cantidad,
+                            @RequestParam(required = false) Boolean estatus,
+                            @RequestParam(required = false) Long id_usuarios) {
+        return pedidoService.updatePedido(id_pedido, nombre, precio, gramaje, cantidad, estatus, id_usuarios);
     }
 
 }

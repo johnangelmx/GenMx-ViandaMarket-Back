@@ -14,7 +14,8 @@ public class Pedido {
     @Column(name = "idpedido", unique = true, nullable = false)
     private Long id_pedido;
     private String nombre;
-    private int precio;
+    private Long precio;
+    private int gramaje;
     private int cantidad;
     private boolean estatus = false;
     @CreationTimestamp
@@ -23,10 +24,10 @@ public class Pedido {
     @Column(columnDefinition = "integer default 0")
     private Long id_usuarios;
 
-    public Pedido(String nombre, int precio, int cantidad, boolean estatus, LocalDateTime fechaGuardado,
-                  Long id_usuarios) {
+    public Pedido(String nombre, Long precio, int gramaje, int cantidad, boolean estatus, LocalDateTime fechaGuardado, Long id_usuarios) {
         this.nombre = nombre;
         this.precio = precio;
+        this.gramaje = gramaje;
         this.cantidad = cantidad;
         this.estatus = estatus;
         this.fechaGuardado = fechaGuardado;
@@ -36,9 +37,10 @@ public class Pedido {
     public Pedido() {
     }
 
-    public Pedido(String nombre, int precio, int cantidad, int id_usuarios) {
+    public Pedido(String nombre, Long precio, int gramaje, int cantidad, int id_usuarios) {
         this.nombre = nombre;
         this.precio = precio;
+        this.gramaje = gramaje;
         this.cantidad = cantidad;
         this.id_usuarios = (long) id_usuarios;
     }
@@ -46,6 +48,7 @@ public class Pedido {
     public Long getId_pedido() {
         return id_pedido;
     }
+
     public String getNombre() {
         return nombre;
     }
@@ -54,12 +57,28 @@ public class Pedido {
         this.nombre = nombre;
     }
 
-    public double getPrecio() {
+    public Long getPrecio() {
         return precio;
     }
 
-    public void setPrecio(int precio) {
+    public void setPrecio(Long precio) {
         this.precio = precio;
+    }
+
+    public int getGramaje() {
+        return gramaje;
+    }
+
+    public void setGramaje(int gramaje) {
+        this.gramaje = gramaje;
+    }
+
+    public int getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
     }
 
     public boolean isEstatus() {
@@ -86,19 +105,17 @@ public class Pedido {
         this.id_usuarios = id_usuarios;
     }
 
-    public int getCantidad() {
-        return cantidad;
-    }
-
-    public void setCantidad(int cantidad) {
-        this.cantidad = cantidad;
-    }
-
     @Override
     public String toString() {
-        return "Pedido [id_pedido=" + id_pedido + ", nombre=" + nombre + ", precio=" + precio + ", cantidad=" + cantidad
-                + ", estatus=" + estatus + ", fechaGuardado=" + fechaGuardado + ", id_usuarios=" + id_usuarios + "]";
+        return "Pedido{" +
+                "id_pedido=" + id_pedido +
+                ", nombre='" + nombre + '\'' +
+                ", precio=" + precio +
+                ", gramaje=" + gramaje +
+                ", cantidad=" + cantidad +
+                ", estatus=" + estatus +
+                ", fechaGuardado=" + fechaGuardado +
+                ", id_usuarios=" + id_usuarios +
+                '}';
     }
-
-
 }
