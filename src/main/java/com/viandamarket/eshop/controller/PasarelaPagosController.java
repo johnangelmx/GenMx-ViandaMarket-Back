@@ -34,7 +34,7 @@ public class PasarelaPagosController {
             Stripe.apiKey = stripeSecretKey;
             // Crear un objeto SessionCreateParams.Builder con los detalles de la compra
             SessionCreateParams.Builder builder = new SessionCreateParams.Builder();
-            builder.setSuccessUrl("http://localhost:8080/perfilusuario.html?" + encriptarPedidos(pedidos))
+            builder.setSuccessUrl("http://localhost:8080/gracias-compra.html?" + encriptarPedidos(pedidos))
                     .setCancelUrl("http://localhost:8080/carrito.html")
                     .addPaymentMethodType(SessionCreateParams.PaymentMethodType.CARD)
                     .setMode(SessionCreateParams.Mode.PAYMENT);
@@ -68,9 +68,9 @@ public class PasarelaPagosController {
             // Obtener la URL de pago de la sesión
             String urlPago = session.getUrl();
             String sessionStripeId = session.getId();
-            // Crear un mapa con sessionId y urlPago
+            // Crear un mapa con sessionPedidosId y urlPago
             Map<String, String> jsonResponse = new HashMap<>();
-            jsonResponse.put("sessionId", sessionStripeId);
+            jsonResponse.put("sessionPedidosId", sessionStripeId);
             jsonResponse.put("urlPago", urlPago);
 
             // Devolver el mapa como respuesta

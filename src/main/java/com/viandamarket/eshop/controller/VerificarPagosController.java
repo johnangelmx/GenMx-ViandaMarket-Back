@@ -33,7 +33,7 @@ public class VerificarPagosController {
                 for (Pedido pedido : pedidos) {
                     pedidoService.addPedido(pedido);
                 }
-                return ResponseEntity.status(HttpStatus.OK).body("OK");
+                return ResponseEntity.ok("OK");
             }
         } else {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error compra aun no pagada");
